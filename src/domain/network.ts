@@ -1,0 +1,36 @@
+/**
+ * Vue Start Kit
+ *
+ * This is handling the abstractions for making API requests.
+ *
+ * @author Rogerio Taques (hello@abtz.co)
+ * @license MIT
+ */
+
+/**
+ * An example of a network call.
+ * Be careful: This function (fetch) is not supported on (any version) of IE.
+ * @return JSON
+ */
+export const getTasks = async () => {
+  const url = 'https://randomuser.me/api/?results=10';
+
+  let response;
+  let json;
+  let data;
+
+  // Executing the API call in a try/catch block
+  // we can handle any possible failure in the process.
+  try {
+    response = await fetch(url);
+    json = await response.json();
+
+    data = json.results.map((entry: any) => {
+      return `${entry.name.title} ${entry.name.first} ${entry.name.last}`;
+    });
+  } catch (error) {
+    return []; // Prevent error to the user
+  }
+
+  return data;
+}; // getTasks
