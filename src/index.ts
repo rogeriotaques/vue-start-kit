@@ -15,9 +15,15 @@ import { router } from '~/domain/router';
 import { store } from '~/domain/store/vuex';
 import ToDo from '~/components/todo.vue';
 
+const SeedCSS = require('../node_modules/seed-css/dist/seedcss.js').SeedCSS;
+
 new Vue({
   el: '#app',
   router,
   store,
   render: (h) => h(ToDo)
 });
+
+if (typeof SeedCSS !== 'undefined') {
+  SeedCSS.offCanvas();
+}

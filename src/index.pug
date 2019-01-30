@@ -1,6 +1,6 @@
 doctype html
 
-// Kickoff Vue App
+// Vue Start Kit
 // This is the HTML boilerplate.
 // @author Rogerio Taques (hello@abtz.co)
 // @license MIT
@@ -13,7 +13,66 @@ html(lang="en")
     title Vue Start Kit
     link(rel="stylesheet", href="../node_modules/seed-css/dist/seed.css")
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.6.3/css/all.css", integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", crossorigin="anonymous")
+    style(type="text/css").
+      img.vuejs {
+        max-width: 20px;
+      }
 
+      img.abtzlabs {
+        max-width: 30px;
+      }
+
+      .logo > span {
+        margin-left: 10px;
+      }
+
+      .logo:hover {
+        background-color: transparent !important;
+      }
   body
-    div#app
+    aside#mycanvas.offcanvas
+      h4.align-center Other projects that might interest you
+
+      div.align-center
+        a(href="https://abtzlabs.github.io/seed-css/", target="_blank").btn Seed-CSS
+        a(href="http://github.com/abtzlabs/seed-php/", target="_blank").btn Seed-PHP
+        a(href="http://rogeriotaques.github.io/detectr.js/", target="_blank").btn Detectr.js
+        a(href="https://rogeriotaques.github.io/droparea/", target="_blank").btn Droparea.js
+
+      hr
+
+      p.align-center
+        a(
+          href="https://twitter.com/rogeriotaques",
+          target="_blank",
+          tooltip="Follow me on Twitter"
+        ).lead.darkgrey.with-tooltip
+          i.fab.fa-twitter
+
+        span &nbsp;&nbsp;&nbsp;
+
+        a(
+          href="https://medium.com/@rogeriotaques",
+          target="_blank",
+          tooltip="Check my articles on Medium"
+        ).lead.darkgrey.with-tooltip
+          i.fab.fa-medium
+
+
+    main.oncanvas
+      nav.dark.sticky
+        ul.place-left
+          li
+            a(href="#", role="offcanvas", data-id="mycanvas").logo
+              i.fas.fa-bars
+
+        ul.place-center
+          li
+            a(href="https://github.com/AbtzLabs/vue-start-kit", target="_blank").logo
+              img(src="https://vuejs.org/images/logo.png", alt="VueJS").vuejs
+              img(src="https://abtz.co/abtz-favicon.png", alt="Abtz Labs").abtzlabs
+              span Vue Start Kit
+
+      div#app
+
     script(type="text/javascript", src="./index.ts")

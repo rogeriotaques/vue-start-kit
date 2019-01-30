@@ -34,10 +34,10 @@ const createTask = (state: State, data: Task): Task => {
 };
 
 export const mutations = {
-  loadData(state: State, tasks: Array<string>) {
+  loadData(state: State, tasks: Array<Task>) {
     if (tasks.length) {
-      tasks.forEach((text) => {
-        state.tasks.push(createTask(state, { text }));
+      tasks.forEach((task) => {
+        state.tasks.push(createTask(state, task));
       });
     }
 

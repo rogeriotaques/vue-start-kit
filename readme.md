@@ -1,12 +1,23 @@
-# Vue Start Kit, by Abtz Labs
+<div style="text-align: center; margin: 40px 0" >
+  <p >
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+    </a>
+    <a href="https://gitter.im/AbtzLabs/vue-start-kit">
+      <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" />
+    </a>
+  </p>
 
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
-</a>
+  <p >
+    <img src="https://vuejs.org/images/logo.png" alt="VueJS" style="max-width: 100px;">
+    <img src="https://abtz.co/abtz-favicon.png" alt="Abtz Labs" style="max-width: 110px;">
+  </p>
 
-<a href="https://gitter.im/AbtzLabs/vue-start-kit">
-  <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" />
-</a>
+  <h1 style="margin:0; border: 0;" >Vue Start Kit</h1>
+  <p style="margin:0; border-bottom: thin solid #aaa; padding-bottom: 40px">
+    by Abtz Labs
+  </p>
+</div>
 
 Just another boring starter kit for Vue applications made with interesting libraries such as Vuex, ParcelJS (package bundler), PugJS, TypeScrit!
 
@@ -72,11 +83,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Donate
+## Be a Sponsor
 
 I can't just write about how this project can boost the start of your projects in VueJS or about how much it costs to me (time and money-wise) to build an open-source tool available to everyone. But I can trully tell you that I do this with all the love from the bottom of my heart and all the good wishes to help other developers (just like myself) which can eventually become real costs and sacrifices.
 
 If you want to kick in to help me cover _those costs_, that would be awesome!
 
-☕️ [Buy me a coffee](https://www.buymeacoffee.com/rogeriotaques) (I just love it)
-If you become a regular sponsor or contributor, I promisse your name will be in this file. 😉
+☕️ [Buy me a coffee](https://www.buymeacoffee.com/rogeriotaques) (I just love it) <br >
+😉 Sponsors/ contributors, I promisse your name (and picture/ logo) will be in this page.

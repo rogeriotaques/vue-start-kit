@@ -25,11 +25,15 @@ export const getTasks = async () => {
     response = await fetch(url);
     json = await response.json();
 
-    data = json.results.map((entry: any) => {
-      return `${entry.name.title} ${entry.name.first} ${entry.name.last}`;
+    data = json.results.map((entry: any, idx: number) => {
+      return {
+        id: idx,
+        text: `${entry.name.title} ${entry.name.first} ${entry.name.last}`,
+        complete: idx % 3 === 0
+      };
     });
   } catch (error) {
-    return []; // Prevent error to the user
+    data = []; // Prevent error to the user
   }
 
   return data;
