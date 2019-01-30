@@ -1,23 +1,11 @@
-<div style="text-align: center; margin: 40px 0" >
-  <p >
-    <a href="https://opensource.org/licenses/MIT">
-      <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
-    </a>
-    <a href="https://gitter.im/AbtzLabs/vue-start-kit">
-      <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" />
-    </a>
-  </p>
+# Vue Start Kit, by Abtz Labs
 
-  <p >
-    <img src="https://vuejs.org/images/logo.png" alt="VueJS" style="max-width: 100px;">
-    <img src="https://abtz.co/abtz-favicon.png" alt="Abtz Labs" style="max-width: 110px;">
-  </p>
-
-  <h1 style="margin:0; border: 0;" >Vue Start Kit</h1>
-  <p style="margin:0; border-bottom: thin solid #aaa; padding-bottom: 40px">
-    by Abtz Labs
-  </p>
-</div>
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+</a>
+<a href="https://gitter.im/AbtzLabs/vue-start-kit">
+  <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" />
+</a>
 
 Just another boring starter kit for Vue applications made with interesting libraries such as Vuex, ParcelJS (package bundler), PugJS, TypeScrit!
 
