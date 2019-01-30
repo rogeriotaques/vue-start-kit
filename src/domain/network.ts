@@ -13,7 +13,7 @@
  * @return JSON
  */
 export const getTasks = async () => {
-  const url = 'https://randomuser.me/api/?results=10';
+  const url = 'https://randomuser.me/api/?results=5';
 
   let response;
   let json;

@@ -27,7 +27,7 @@
     div(v-if="!isDataLoaded").align-center
       div(data-label="Loading ...").spinner
 
-    dl.mt-0
+    dl(v-bind:class="{'tasks-list with-shadow': getTasks.length > 0}").mt-0
       dt(
         v-for="task in getTasks",
         v-bind:key="task.id",
@@ -168,6 +168,26 @@ export default {
   &.complete {
     text-decoration: line-through;
     font-style: italic;
+  }
+}
+
+.tasks-list {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: relative;
+    border: thin solid #aaa;
+    height: 3px;
+    background: white;
+  }
+
+  &::before {
+    position: absolute;
+    width: calc(100% - 2px);
+    top: 100%;
   }
 }
 
