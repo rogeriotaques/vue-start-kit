@@ -32,6 +32,6 @@
     "vue-template-compiler": "^2.5.22"
   },
   "alias": {
-    "vue": "./node_modules/vue/dist/vue.js"
+    "vue": "./node_modules/vue/dist/vue.esm.js"
   }
 }
