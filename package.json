@@ -4,8 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "parcel src/index.pug --open --cache-dir=./dist/.cache",
+    "start": "parcel src/index.pug --open --no-cache",
     "build": "parcel build src/index.pug --cache-dir=./dist/.cache",
+    "build-github": "parcel build src/index.pug --cache-dir=./dist/.cache --out-dir=./docs --public-url=./",
     "test": "mocha --require babel-core/register test/main.ts"
   },
   "author": "Rogerio Taques (hello@abtz.co)",
