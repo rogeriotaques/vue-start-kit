@@ -7,6 +7,8 @@
  * @license MIT
  */
 
+import { Task } from '~/domain/interfaces';
+
 /**
  * An example of a network call.
  * Be careful: This function (fetch) is not supported on (any version) of IE.
@@ -27,7 +29,7 @@ export const getTasks = async () => {
 
     data = json.results.map((entry: any, idx: number) => {
       return {
-        id: idx,
+        id: idx + 1,
         text: `${entry.name.title} ${entry.name.first} ${entry.name.last}`,
         complete: idx % 3 === 0,
         editing: false

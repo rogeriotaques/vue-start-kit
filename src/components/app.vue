@@ -18,7 +18,7 @@
 
     router-view
 
-    p.align-center
+    p.align-center.mt-20
       span The sample data is fetched from &nbsp;
       a(href="https://randomuser.me", target="_blank") https://randomuser.me
 </template>
@@ -29,7 +29,7 @@ export default {
 
   mounted() {
     // When this component is mounted, calls the API
-    // this.$store.dispatch("getFromAPI");
+    this.$store.dispatch("getFromAPI");
   }
 };
 </script>

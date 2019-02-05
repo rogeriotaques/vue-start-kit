@@ -17,44 +17,42 @@ import { stat } from 'fs';
 
 import { State, Task } from '~/domain/interfaces';
 
-// const createTask = (state: State, data: Task): Task => {
-//   const { tasks } = state;
+const createTask = (data: Task): Task => {
+  const task: Task = {
+    id: 0,
+    text: '',
+    complete: false,
+    editing: false
+  };
 
-//   const nextID: number =
-//     tasks.length > 0 ? (tasks[tasks.length - 1].id || 0) + 1 : 1;
-
-//   const task: Task = {
-//     id: nextID,
-//     text: '',
-//     complete: false,
-//     editing: false
-//   };
-
-//   return Object.assign(task, data);
-// };
+  return Object.assign(task, data);
+};
 
 export const mutations = {
-  // loadData(state: State, tasks: Array<Task>) {
-  //   if (tasks.length) {
-  //     tasks.forEach((task) => {
-  //       state.tasks.push(createTask(state, task));
-  //     });
-  //   }
-  //   state.isLoadingFromAPI = false;
-  // },
+  loadData(state: State, payload: { tasks: Array<Task> | [] }) {
+    if (payload.tasks.length) {
+      payload.tasks.forEach((task) => {
+        state.tasks.push(<never>createTask(task));
+      });
+    }
+
+    state.isLoadingData = false;
+  }, // loadData
+
+  removeTasks(state: State, payload?: { id: number }) {
+    if (payload && payload.id) {
+      state.tasks = state.tasks.filter((task: Task) => task.id !== payload.id);
+    } else {
+      state.tasks = [];
+    }
+  } // removeTasks
+
   // editTask(state: State, payload: { task: Task; data: Task }) {
   //   let task: Task | undefined = state.tasks.find(
   //     (task: Task) => task.id === payload.task.id
   //   );
   //   if (task) {
   //     task = Object.assign(payload.task, payload.data);
-  //   }
-  // },
-  // removeTasks(state: State, id?: number) {
-  //   if (id) {
-  //     state.tasks = state.tasks.filter((task: Task) => task.id !== id);
-  //   } else {
-  //     state.tasks = [];
   //   }
   // },
   // addTask(state: State, data: Task) {
