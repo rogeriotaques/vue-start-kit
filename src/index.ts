@@ -13,17 +13,11 @@ import '@babel/polyfill';
 import Vue from 'vue';
 import { router } from '~/domain/router';
 import { store } from '~/domain/store/vuex';
-import ToDo from '~/components/todo.vue';
-
-const SeedCSS = require('../node_modules/seed-css/dist/seedcss.js').SeedCSS;
+import App from '~/components/app.vue';
 
 new Vue({
   el: '#app',
   router,
   store,
-  render: (h) => h(ToDo)
+  render: (h) => h(App)
 });
-
-if (typeof SeedCSS !== 'undefined') {
-  SeedCSS.offCanvas();
-}

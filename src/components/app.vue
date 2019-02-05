@@ -5,8 +5,8 @@
 
 <template lang="pug">
   .container
-    h5.align-center.m-0 - A ToDo (Sample) App with VueJS -
-    p.align-center by Abtz Labs | Rogerio Taques
+    //- h5.align-center.m-0 - A ToDo (Sample) App with VueJS -
+    //- p.align-center by Abtz Labs | Rogerio Taques
 
     //- UNCOMMENT THE NEXT LINES IF YOU WANNA ADD
     //- THE LINKS CONNECTED TO THE VUE-ROUTER
@@ -19,17 +19,17 @@
     router-view
 
     p.align-center
-      span Sample data is fetched from &nbsp;
+      span The sample data is fetched from &nbsp;
       a(href="https://randomuser.me", target="_blank") https://randomuser.me
 </template>
 
 <script lang="ts">
 export default {
-  name: "ToDo",
+  name: "App",
 
   mounted() {
     // When this component is mounted, calls the API
-    this.$store.dispatch("loadDataFromAPI");
+    // this.$store.dispatch("getFromAPI");
   }
 };
 </script>
