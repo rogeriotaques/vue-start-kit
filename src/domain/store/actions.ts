@@ -20,32 +20,28 @@ import { Task } from '~/domain/interfaces';
 import { getTasks } from '~/domain/network';
 
 export const actions = {
-  loadDataFromAPI: async (context: any) => {
-    const tasks = await getTasks();
-    context.commit('loadData', tasks);
-  },
-
-  updateTask(context: any, payload: { task: Task; data: Task }) {
-    if (payload.task.text && payload.task.text.length > 0) {
-      context.commit('editTask', {
-        task: payload.task,
-        data: payload.data
-      });
-    } else {
-      context.commit('removeTasks', payload.task.id);
-    }
-  },
-
-  removeSingleTask(context: any, id: number) {
-    context.commit('removeTasks', id);
-  },
-
-  removeAllTasks(context: any) {
-    context.commit('removeTasks');
-  },
-
-  addNewTask(context: any, text: string) {
-    const newTask = { text };
-    context.commit('addTask', newTask);
-  }
+  // loadDataFromAPI: async (context: any) => {
+  //   const tasks = await getTasks();
+  //   context.commit('loadData', tasks);
+  // },
+  // updateTask(context: any, payload: { task: Task; data: Task }) {
+  //   if (payload.task.text && payload.task.text.length > 0) {
+  //     context.commit('editTask', {
+  //       task: payload.task,
+  //       data: payload.data
+  //     });
+  //   } else {
+  //     context.commit('removeTasks', payload.task.id);
+  //   }
+  // },
+  // removeSingleTask(context: any, id: number) {
+  //   context.commit('removeTasks', id);
+  // },
+  // removeAllTasks(context: any) {
+  //   context.commit('removeTasks');
+  // },
+  // addNewTask(context: any, text: string) {
+  //   const newTask = { text };
+  //   context.commit('addTask', newTask);
+  // }
 };

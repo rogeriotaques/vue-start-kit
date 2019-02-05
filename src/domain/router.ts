@@ -9,7 +9,7 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Tasks from '~/components/tasks.vue';
+import Tasks from '~/components/context/tasks.vue';
 
 Vue.use(VueRouter);
 

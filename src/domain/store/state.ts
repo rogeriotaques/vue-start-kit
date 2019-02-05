@@ -14,6 +14,6 @@
 import { State } from '~/domain/interfaces';
 
 export const state: State = {
-  isLoadingFromAPI: true,
+  isLoadingData: true,
   tasks: []
 };

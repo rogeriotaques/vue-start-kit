@@ -16,15 +16,13 @@
 import { State, Task } from '~/domain/interfaces';
 
 export const getters = {
-  isDataLoaded(state: State): boolean {
-    return !state.isLoadingFromAPI;
-  },
-
-  countTotalTasks(state: State): number {
-    return state.tasks.length;
-  },
-
-  getTasks(state: State): Array<Task> {
-    return state.tasks;
-  }
+  // isDataLoaded(state: State): boolean {
+  //   return !state.isLoadingFromAPI;
+  // },
+  // countTotalTasks(state: State): number {
+  //   return state.tasks.length;
+  // },
+  // getTasks(state: State): Array<Task> {
+  //   return state.tasks;
+  // }
 };

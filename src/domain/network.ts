@@ -29,7 +29,8 @@ export const getTasks = async () => {
       return {
         id: idx,
         text: `${entry.name.title} ${entry.name.first} ${entry.name.last}`,
-        complete: idx % 3 === 0
+        complete: idx % 3 === 0,
+        editing: false
       };
     });
   } catch (error) {

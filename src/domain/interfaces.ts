@@ -19,6 +19,6 @@ export interface Task {
 
 // The APP state interface
 export interface State {
-  isLoadingFromAPI: boolean;
-  tasks: Array<Task>;
+  isLoadingData: boolean;
+  tasks: Array<Task> | [];
 }
