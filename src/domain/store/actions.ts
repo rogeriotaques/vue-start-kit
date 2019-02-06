@@ -20,31 +20,57 @@ import { Task } from '~/domain/interfaces';
 import { getTasks } from '~/domain/network';
 
 export const actions = {
+  /**
+   * Gather tasks from API and commits a mutation.
+   * @param context
+   */
   async getFromAPI(context: any) {
     const tasks = await getTasks();
-    context.commit('loadData', { tasks });
-  },
+    context.commit('load', { tasks });
+  }, // getFromAPI
 
+  /**
+   * Commits the mutation to remove a single task from state
+   * @param context
+   * @param payload
+   */
   removeSingleTask(context: any, payload: { id: number }) {
-    context.commit('removeTasks', payload);
-  },
+    context.commit('remove', payload);
+  }, // removeSingleTask
 
+  /**
+   * Commits a mutation to remove all the tasks from the state
+   * @param context
+   */
   removeAllTasks(context: any) {
-    context.commit('removeTasks');
-  }
+    context.commit('remove');
+  }, // removeAllTasks
 
-  // updateTask(context: any, payload: { task: Task; data: Task }) {
-  //   if (payload.task.text && payload.task.text.length > 0) {
-  //     context.commit('editTask', {
-  //       task: payload.task,
-  //       data: payload.data
-  //     });
-  //   } else {
-  //     context.commit('removeTasks', payload.task.id);
-  //   }
-  // },
-  // addNewTask(context: any, text: string) {
-  //   const newTask = { text };
-  //   context.commit('addTask', newTask);
-  // }
+  /**
+   * Commits a mutation to update the given task in the state
+   * @param context
+   * @param payload
+   */
+  updateTask(context: any, payload: { task: Task; data: Task }) {
+    if (payload.task.text && payload.task.text.length === 0) {
+      // Removes tasks with empty text
+      context.commit('remove', payload.task.id);
+    } else {
+      // Updates task data
+      context.commit('update', {
+        task: payload.task,
+        data: payload.data
+      });
+    }
+  }, // updateTask
+
+  /**
+   * Commits a mutation to add a new task in the state
+   * @param context
+   * @param text
+   */
+  addNewTask(context: any, text: string) {
+    const newTask = { text };
+    context.commit('add', newTask);
+  } // addNewTask
 };

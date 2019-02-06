@@ -29,7 +29,13 @@ const createTask = (data: Task): Task => {
 };
 
 export const mutations = {
-  loadData(state: State, payload: { tasks: Array<Task> | [] }) {
+  /**
+   * Updates the tasks in the state with a list of tasks gathered from network.
+   * @see ~/domain/network.js
+   * @param state
+   * @param payload
+   */
+  load(state: State, payload: { tasks: Array<Task> | [] }) {
     if (payload.tasks.length) {
       payload.tasks.forEach((task) => {
         state.tasks.push(<never>createTask(task));
@@ -37,25 +43,43 @@ export const mutations = {
     }
 
     state.isLoadingData = false;
-  }, // loadData
+  }, // load
 
-  removeTasks(state: State, payload?: { id: number }) {
+  /**
+   * Remove existing tasks from the state.
+   * If ID is not given in the payload, removes all.
+   * @param state
+   * @param payload
+   */
+  remove(state: State, payload?: { id: number }) {
     if (payload && payload.id) {
       state.tasks = state.tasks.filter((task: Task) => task.id !== payload.id);
     } else {
       state.tasks = [];
     }
-  } // removeTasks
+  }, // remove
 
-  // editTask(state: State, payload: { task: Task; data: Task }) {
-  //   let task: Task | undefined = state.tasks.find(
-  //     (task: Task) => task.id === payload.task.id
-  //   );
-  //   if (task) {
-  //     task = Object.assign(payload.task, payload.data);
-  //   }
-  // },
-  // addTask(state: State, data: Task) {
-  //   state.tasks.push(createTask(state, data));
-  // }
+  /**
+   * Updates any existing task in the state
+   * @param state
+   * @param payload
+   */
+  update(state: State, payload: { task: Task; data: Task }) {
+    let task: Task | undefined = state.tasks.find(
+      (task: Task) => task.id === payload.task.id
+    );
+
+    if (task) {
+      task = Object.assign(payload.task, payload.data);
+    }
+  }, // update
+
+  /**
+   * Adds a new task to the tasks list in the state
+   * @param state
+   * @param data
+   */
+  add(state: State, data: Task) {
+    state.tasks.push(<never>createTask(data));
+  } // add
 };
