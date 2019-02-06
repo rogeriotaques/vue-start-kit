@@ -16,10 +16,20 @@
 import { State, Task } from '~/domain/interfaces';
 
 export const getters = {
+  /**
+   * Indicates whether the APP is loading data from the API.
+   * @param state
+   * @return boolean
+   */
   isDataLoaded(state: State): boolean {
     return !state.isLoadingData;
   },
 
+  /**
+   * Simply counts existing tasks in the state.
+   * @param state
+   * @return number
+   */
   countTotalTasks(state: State): number {
     return state.tasks.length;
   }

@@ -18,8 +18,10 @@ import { actions } from './actions';
 import { mutations } from './mutations';
 import { state } from './state';
 
+// Tells Vue to use Vuex
 Vue.use(Vuex);
 
+// Creates a new store instance
 export const store = new Vuex.Store({
   state,
   getters,
