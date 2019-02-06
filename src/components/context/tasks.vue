@@ -5,79 +5,50 @@
 
 <template lang="pug">
   #tasks
+    div.mt-20.tasks-header
+      p.counter.place-left.mb-0
+        base-button(
+          tooltip="Mark all as done"
+          v-bind:click="() => {}"
+        ).link.small.check-all.with-tooltip.bottom
+          i.eva.eva-checkmark-outline
 
-    //-   .field
-    //-     input(
-    //-       type="text",
-    //-       placeholder="Type yout next task and hit enter...",
-    //-       autofocus,
-    //-       v-on:change="addNewTask($event)"
-    //-     )
+        span {{countTotalTasks}} tasks listed.
 
-
-    div
-      p.counter.place-left.mb-0 {{countTotalTasks}} tasks listed.
-
-      p(v-if="isDataLoaded && countTotalTasks > 0").remove-all.place-right.mb-0
-        base-button(v-bind:click="() => remove()").link.small Remove All
+      p(v-if="isDataLoaded && countTotalTasks > 0").place-right.mb-0
+        base-button(
+          tooltip="Remove All"
+          v-bind:click="() => remove()"
+        ).link.small.with-tooltip.bottom.remove-all
+          i.eva.eva-trash-outline
 
       br(style="clear: both;")
 
-    base-spinner(v-if="!isDataLoaded")
+    .field.mb-0.secondary-background
+      input(
+        type="text",
+        placeholder="Type yout next task and hit enter...",
+        autofocus,
+        v-on:change="add($event)"
+      )
 
-    p(v-if="isDataLoaded && countTotalTasks === 0").alert.align-center
+    base-spinner(v-if="!isDataLoaded").mt-30
+
+    p(v-if="isDataLoaded && countTotalTasks === 0").alert.info.align-center.mt-30
       span Hooray! No open tasks. <br >
       span.secondary <a href="javascript:location.reload();">Refresh the browser</a> to see all the tasks again.
 
-    dl(v-if="isDataLoaded && countTotalTasks > 0").tasks.with-shadow
-      dt(v-for="task in getTasks()", v-bind:key="task.id").task-item
-        base-button.link.small.checkmark
-          i.eva.eva-checkmark-outline
-
-        span.task-text {{task.text}}
-
-        base-button(
-          tooltip="Remove task",
-          v-bind:click="() => remove(task.id)"
-        ).link.small.with-tooltip.left.place-right
-          i.eva.eva-trash-outline
-
-    //-   dl(v-bind:class="{'tasks-list with-shadow': getTasks.length > 0}").mt-0
-    //-     dt(
-    //-       v-for="task in getTasks",
-    //-       v-bind:key="task.id",
-    //-       v-bind:class="{complete: task.complete}"
-    //-     ).task-item.pr-0
-    //-       span(
-    //-         v-if="!task.editing",
-    //-         v-on:click="startEditing({task, flag: true})"
-    //-       ).task-text {{task.text}}
-
-    //-       input(
-    //-         type="text",
-    //-         placeholder="Empty will remove the task ...",
-    //-         v-if="task.editing",
-    //-         v-bind:id="`task-${task.id}`",
-    //-         v-bind:value="task.text",
-    //-         v-on:blur="startEditing({task, flag: false})",
-    //-         v-on:input="evt => updateTask(task, evt)",
-    //-         v-on:keypress="evt => stopEditing(task, evt)"
-    //-       )
-
-    //-       span.place-right.align-right
-    //-         button(
-    //-           v-if="!task.complete",
-    //-           v-on:click="markAsDone(task, !task.complete)",
-    //-           tooltip="Mark as done "
-    //-         ).btn.link.small.p-0.my-0.with-tooltip
-    //-           i.fas.fa-check
-
-    //-         button(
-    //-           v-if="task.complete",
-    //-           v-on:click="markAsDone(task, !task.complete)",
-    //-           tooltip="Mark as open"
-    //-         ).btn.link.small.p-0.my-0.with-tooltip
-    //-           i.fas.fa-times
+    dl(v-if="isDataLoaded && countTotalTasks > 0").tasks.mt-0
+      task-item(
+        v-for="task in getTasks()",
+        v-bind:task="task"
+        v-on:complete="() => complete(task)"
+        v-on:unhide="() => edit({task, editing: true})"
+        v-on:hide="() => edit({task, editing: false})"
+        v-on:update="(evt) => update(task, evt)"
+        v-on:keypress="(evt) => keypressed(task, evt)"
+        v-on:remove="() => remove(task.id)"
+      )
 </template>
 
 <script lang="ts">
@@ -85,37 +56,27 @@ import { Task } from "~/domain/interfaces";
 import { mapGetters } from "vuex";
 import BaseSpinner from '~/components/base/spinner.vue';
 import BaseButton from '~/components/base/button.vue';
+import TaskItem from '~/components/context/task-item.vue';
 
 export default {
   name: "Tasks",
 
   components: {
     BaseButton,
-    BaseSpinner
+    BaseSpinner,
+    TaskItem
   },
 
   computed: {
-    // Mapping the getters is way easier than the example below.
+    // Mapping the getters is the easiest way of get common computed data
     ...mapGetters(["isDataLoaded", "countTotalTasks"])
-
-    // Instead of mapping your could write it like this:
-    //
-    // isDataLoaded(): boolean {
-    //   return this.$store.getters.isDataLoaded;
-    // },
-    // countTotalTasks(): number {
-    //   return this.$store.getters.countTotalTasks;
-    // },
-    // getTasks(): Array<Task> {
-    //   return this.$store.getters.getTasks;
-    // }
   },
 
   // All the component methods
   methods: {
     getTasks(): Array<Task> {
       return this.$store.state.tasks;
-    },
+    }, // getTasks
 
     remove(id?: number): void {
       if (id) {
@@ -123,119 +84,100 @@ export default {
       } else {
         this.$store.dispatch("removeAllTasks");
       }
-    },
+    }, // remove
 
-    // startEditing(payload: { task: Task; flag: boolean }): void {
-    //   this.$store.dispatch("updateTask", {
-    //     task: payload.task,
-    //     data: { editing: payload.flag }
-    //   });
+    complete(task: Task): void {
+      this.$store.dispatch("updateTask", { task, data: { complete: !task.complete } });
+    }, // complete
 
-    //   if (payload.flag) {
-    //     setTimeout(() => {
-    //       const target: any = document.getElementById(
-    //         `task-${payload.task.id}`
-    //       );
-    //       target.select();
-    //       target.focus();
-    //     }, 50);
-    //   }
-    // },
+    edit(payload: { task: Task; editing: boolean }): void {
+      this.$store.dispatch("updateTask", {
+        task: payload.task,
+        data: { editing: payload.editing }
+      });
 
-    // stopEditing(task: Task, evt: any) {
-    //   const code = evt.keyCode || evt.which;
+      if (payload.editing) {
+        // If editing (visible input), put the focus on it.
+        // Using timeout to workaround the timing to display it.
+        setTimeout(() => {
+          const target: any = document.getElementById(
+            `task-${payload.task.id}`
+          );
 
-    //   if (code === 13 /* enter */) {
-    //     this.$store.dispatch("updateTask", { task, data: { editing: false } });
-    //   }
-    // },
+          target.select();
+          target.focus();
+        }, 50);
+      }
+    }, // edit
 
-    // updateTask(task: Task, evt: any) {
-    //   this.$store.dispatch("updateTask", {
-    //     task,
-    //     data: { text: evt.target.value }
-    //   });
-    // },
+    keypressed(task: Task, evt: any) {
+      const code = evt.keyCode || evt.which;
 
-    // markAsDone(task: Task, complete: boolean): void {
-    //   this.$store.dispatch("updateTask", { task, data: { complete } });
-    // },
+      if (code === 13 ) {
+        // Always the ENTER key is pressed
+        this.$store.dispatch("updateTask", { task, data: { editing: false } });
+      }
+    }, // keypressed
 
+    update(task: Task, evt: any) {
+      this.$store.dispatch("updateTask", {
+        task,
+        data: { text: evt.target.value }
+      });
+    }, // update
 
-
-    // addNewTask(event: any) {
-    //   this.$store.dispatch("addNewTask", event.target.value);
-    //   event.target.value = "";
-    // }
+    add(event: any) {
+      this.$store.dispatch("addNewTask", event.target.value);
+      event.target.value = "";
+    } // add
   }
 };
 </script>
 
 
 <style lang="scss" >
+// Fixture for SeedCSS tooltip
+// Not needed after 2.1.2
+.with-tooltip {
+  &::before,
+  &::after {
+    z-index: 100;
+  }
+}
+
+.field {
+  padding: 20px;
+  border: thin solid #4b70b4!important;
+  background: #4b70b4 !important;
+  position: relative;
+  z-index: 20;
+} // .field
+
 .counter {
   line-height: 31px;
-}
+} // .counter
 
+.check-all,
 .remove-all {
   margin: 0;
-}
-
-.task-item {
-  padding: 10px 20px;
-  border-bottom: thin solid #ccc;
-
-  &:hover {
-    background-color: #f9f9f9;
-  }
-
-  .btn {
-    cursor: pointer !important;
-    margin: 0;
-    min-width: auto;
-
-    > .eva {
-      font-size: 2rem;
-    }
-
-    &.checkmark {
-      color: #d5d5d5;
-      cursor: pointer;
-
-      &:hover {
-        color: #bbb;
-      }
-
-      > .eva {
-        font-size: 2.5rem;
-      }
-    }
-  }
-
-  .task-text {
-    display: inline-block;
-    line-height: 40px;
-    vertical-align: text-bottom;
-  }
-
-//   input {
-//     width: 60%;
-//   }
-}
-
-// .task-item,
-// .task-text {
-//   line-height: 44px;
-
-//   &.complete {
-//     text-decoration: line-through;
-//     font-style: italic;
-//   }
-// }
+  min-width: auto;
+  cursor: pointer;
+} // .remove-all
 
 .tasks {
+  border: thin solid #ccc;
   position: relative;
   z-index: 6;
+
+  &-header {
+    border: thin solid #ccc;
+    border-bottom: 0;
+
+    .eva {
+      font-size: 2rem;
+      color: #aaa;
+    }
+  } // .tasks-header
 
   &::before,
   &::after {
@@ -244,25 +186,26 @@ export default {
     position: relative;
     border-bottom: thin solid #aaa;
     height: 3px;
-    width: 100%;
   }
 
   &::before {
+    border: {
+      left: thin solid #ccc;
+      right: thin solid #ccc;
+    };
     background: #f1f1f1;
     position: absolute;
     top: 100%;
     z-index: 4;
+    width: calc(100% - 2px);
   }
 
   &::after {
+    width: 100%;
     background: #f5f5f5;
     border-radius: 0 5px 5px 0;
     z-index: 2;
   }
-}
-
-// button {
-//   cursor: pointer !important;
-// }
+} // .tasks
 </style>
 
