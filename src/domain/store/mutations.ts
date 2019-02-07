@@ -80,6 +80,11 @@ export const mutations = {
    * @param data
    */
   add(state: State, data: Task) {
-    state.tasks.push(<never>createTask(data));
+    const newTask: Task = {
+      ...data,
+      id: state.tasks.length ? state.tasks.length + 1 : 1
+    };
+
+    state.tasks.push(<never>createTask(newTask));
   } // add
 };

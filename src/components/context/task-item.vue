@@ -86,7 +86,6 @@ export default {
 };
 </script>
 
-
 <style lang="scss" >
 .task-item {
   padding: 10px 10px 5px;
