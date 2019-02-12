@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.pug --open --no-cache",
     "build": "NODE_ENV=production parcel build src/index.pug --cache-dir=./dist/.cache",
-    "test": "mocha --require babel-core/register test/main.ts"
+    "test": "mocha --require babel-core/register --require babel-polyfill test/main.ts"
   },
   "author": "Rogerio Taques (hello@abtz.co)",
   "license": "MIT",

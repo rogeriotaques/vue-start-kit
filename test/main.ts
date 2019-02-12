@@ -8,7 +8,8 @@
  */
 
 const assert = require('assert');
-// const getTasks = require('../src/domain/network.ts');
+const getTasks = require('../src/domain/network.ts');
+const getData = async () => await getTasks();
 
 describe('Test Example', () => {
   const text = 'Hello World';
@@ -23,8 +24,8 @@ describe('Test Example', () => {
 
   it('expects getTasks to return 10 records', async () => {
     // TODO: Import TS is not working here. Why?
-    // const data = await getTasks();
-    const data = [];
-    assert.equal(data.length, 0);
+    // const data = async () => await getData();
+    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    assert.equal(data.length, 10);
   });
 });
