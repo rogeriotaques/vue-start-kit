@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" />
 </a>
 
-Just another boring starter kit for Vue applications made with interesting libraries such as Vuex, ParcelJS (package bundler), PugJS, TypeScrit!
+Just another boring starter kit for Vue applications made with interesting libraries such as [Vuex](https://vuex.vuejs.org/), [Vue-Router](https://router.vuejs.org/), [ParcelJS](https://parceljs.org) (package bundler), [PugJS](https://pugjs.org), [TypeScrit](https://www.typescriptlang.org/), [Eva-Icons](https://akveo.github.io/eva-icons/) and [Seed-CSS](http://abtzlabs.github.io/seed-css/)!
 
 Found a bug? [Open an Issue](https://github.com/AbtzLabs/vue-start-kit/issues) or [Submit a pull request](https://github.com/AbtzLabs/vue-start-kit/pulls).
 
@@ -42,9 +42,13 @@ A new tab will open in your default browser prointing to [http://localhost:1234/
 
 From now, everything you change on the source-code will trigger an imediate update on the browser (without refresh) preserving the current state of your new app.
 
+## Contributing
+
+Contributions are very welcome and should be made through [pull requests](https://github.com/AbtzLabs/vue-start-kit/pulls). I did not prepare any contribution guidelines so far (sorry), so, please don't be evil. 😉
+
 ## Unit tests
 
-Unit tests are written using `MochaJS` and can be found in `tests/`. Simply run the following command on a terminal window, when inside your project folder:
+Unit tests are (supposed to be) written using `MochaJS` (but they are still pending) and can be found in `tests/`. Simply run the following command on a terminal window, when inside your project folder:
 
 ```sh
 $ npm test
