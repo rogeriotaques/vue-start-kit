@@ -46,6 +46,12 @@ From now, everything you change on the source-code will trigger an imediate upda
 
 Contributions are very welcome and should be made through [pull requests](https://github.com/AbtzLabs/vue-start-kit/pulls). I did not prepare any contribution guidelines so far (sorry), so, please don't be evil. 😉
 
+To start coding, run this in a terminal window.
+
+```sh
+$ npm start
+```
+
 ## Unit tests
 
 Unit tests are (supposed to be) written using `MochaJS` (but they are still pending) and can be found in `tests/`. Simply run the following command on a terminal window, when inside your project folder:
