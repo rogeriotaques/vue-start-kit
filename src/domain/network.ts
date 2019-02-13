@@ -7,25 +7,24 @@
  * @license MIT
  */
 
-import { Task } from '~/domain/interfaces';
+import axios from 'axios';
 
 /**
  * An example of a network call.
  * Be careful: This function (fetch) is not supported on (any version) of IE.
- * @return JSON
+ * @return Promise
  */
 export const getTasks = async () => {
   const url = 'https://randomuser.me/api/?results=5';
 
-  let response;
   let json;
   let data;
 
   // Executing the API call in a try/catch block
   // we can handle any possible failure in the process.
   try {
-    response = await fetch(url);
-    json = await response.json();
+    data = await axios({ url });
+    json = data.data;
 
     data = json.results.map((entry: any, idx: number) => {
       return {
