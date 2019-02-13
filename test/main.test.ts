@@ -7,9 +7,8 @@
  * @license MIT
  */
 
-const assert = require('assert');
-const getTasks = require('../src/domain/network.ts');
-const getData = async () => await getTasks();
+import assert from 'assert';
+import { getTasks } from '../src/domain/network';
 
 describe('Test Example', () => {
   const text = 'Hello World';
@@ -22,10 +21,12 @@ describe('Test Example', () => {
     assert.equal(text.charAt(0), 'H');
   });
 
-  it('expects getTasks to return 10 records', async () => {
-    // TODO: Import TS is not working here. Why?
-    // const data = async () => await getData();
-    const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    assert.equal(data.length, 10);
+  it('expects getTasks to return 5 records', (done) => {
+    getTasks()
+      .then((data) => {
+        assert.equal(data.length, 5);
+        done();
+      })
+      .catch((error) => done(error));
   });
 });
