@@ -9,7 +9,7 @@
       p.counter.place-left.mb-0
         base-button(
           tooltip="Mark all as done"
-          v-bind:click="() => {}"
+          v-bind:click="() => complete()"
         ).link.small.check-all.with-tooltip.bottom
           i.eva.eva-checkmark-outline
 
@@ -54,9 +54,10 @@
 <script lang="ts">
 import { Task } from "~/domain/interfaces";
 import { mapGetters } from "vuex";
-import BaseSpinner from '~/components/base/spinner.vue';
-import BaseButton from '~/components/base/button.vue';
-import TaskItem from '~/components/context/task-item.vue';
+import BaseSpinner from "~/components/base/spinner.vue";
+import BaseButton from "~/components/base/button.vue";
+import TaskItem from "~/components/context/task-item.vue";
+import { getTasks } from "../../domain/network";
 
 export default {
   name: "Tasks",
@@ -80,14 +81,28 @@ export default {
 
     remove(id?: number): void {
       if (id) {
-        this.$store.dispatch("removeSingleTask", {id});
+        this.$store.dispatch("removeSingleTask", { id });
       } else {
         this.$store.dispatch("removeAllTasks");
       }
     }, // remove
 
-    complete(task: Task): void {
-      this.$store.dispatch("updateTask", { task, data: { complete: !task.complete } });
+    complete(task?: Task): void {
+      if (task) {
+        this.$store.dispatch("updateTask", {
+          task,
+          data: { complete: !task.complete }
+        });
+      } else {
+        const { tasks } = this.$store.state;
+
+        tasks.forEach((task: Task) => {
+          this.$store.dispatch("updateTask", {
+            task,
+            data: { complete: true }
+          });
+        });
+      }
     }, // complete
 
     edit(payload: { task: Task; editing: boolean }): void {
@@ -113,7 +128,7 @@ export default {
     keypressed(task: Task, evt: any) {
       const code = evt.keyCode || evt.which;
 
-      if (code === 13 ) {
+      if (code === 13) {
         // Always the ENTER key is pressed
         this.$store.dispatch("updateTask", { task, data: { editing: false } });
       }
@@ -147,7 +162,7 @@ export default {
 
 .field {
   padding: 20px;
-  border: thin solid #4b70b4!important;
+  border: thin solid #4b70b4 !important;
   background: #4b70b4 !important;
   position: relative;
   z-index: 20;
@@ -192,7 +207,7 @@ export default {
     border: {
       left: thin solid #ccc;
       right: thin solid #ccc;
-    };
+    }
     background: #f1f1f1;
     position: absolute;
     top: 100%;
