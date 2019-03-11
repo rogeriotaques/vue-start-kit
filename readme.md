@@ -21,10 +21,6 @@ Found a bug? [Open an Issue](https://github.com/AbtzLabs/vue-start-kit/issues) o
 - 😇 No webpack config file (using ParcelJS instead)
 - ✅ A well commented and easy to understand source-code
 
-## To do ...
-
-- Implement unit tests support (when importing .ts files)
-
 ## Get started
 
 ```sh
@@ -87,5 +83,5 @@ I can't just write about how this project can boost the start of your projects i
 
 If you want to kick in to help me cover _those costs_, that would be awesome!
 
-☕️ [Buy me a coffee](https://www.buymeacoffee.com/rogeriotaques) (I just love it) <br >
+☕️ [Buy me a coffee](https://paypal.me/abtzlabs) (I just love it) <br >
 😉 Sponsors/ contributors, I promisse your name (and picture/ logo) will be in this page.
