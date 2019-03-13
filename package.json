@@ -1,7 +1,7 @@
 {
   "name": "vue-start-kit",
-  "version": "1.2.1",
-  "description": "",
+  "version": "1.2.2",
+  "description": "A boring Vue start kit made with interesting packages.",
   "main": "dist/index.js",
   "scripts": {
     "start": "parcel src/index.pug --open --no-cache",

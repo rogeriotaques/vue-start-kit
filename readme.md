@@ -6,18 +6,10 @@
 <a href="https://gitter.im/AbtzLabs/vue-start-kit">
   <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" alt="Chat on Gitter" /></a>
 
-<div style="display: inline-block; width: 1px; height: 20px; border: 0; border-left: 1px solid #888; margin: 0 10px;"></div>
-
-<a href="https://github.com/AbtzLabs/vue-start-kit/commits/master">
-  <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/abtzlabs/vue-start-kit.svg?label=Commits"></a>
-
-<a href="https://github.com/abtzlabs/vue-start-kit/releases">
-  <img src="https://img.shields.io/github/release/abtzlabs/vue-start-kit.svg?label=Latest+Release" alt="Latest Release" /></a>
-
 <a href="https://github.com/abtzlabs/vue-start-kit/issues">
   <img src="https://img.shields.io/github/issues/abtzlabs/vue-start-kit.svg?label=Issues" alt="Open Issues" /></a>
 
-<br/>
+<br >
 
 Just another boring starter kit for Vue applications made with interesting libraries such as [Vuex](https://vuex.vuejs.org/), [Vue-Router](https://router.vuejs.org/), [ParcelJS](https://parceljs.org) (package bundler), [PugJS](https://pugjs.org), [TypeScrit](https://www.typescriptlang.org/), [Eva-Icons](https://akveo.github.io/eva-icons/) and [Seed-CSS](http://abtzlabs.github.io/seed-css/) (lightweight CSS boilerplate)!
 
