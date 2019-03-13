@@ -11,7 +11,6 @@ import axios from 'axios';
 
 /**
  * An example of a network call.
- * Be careful: This function (fetch) is not supported on (any version) of IE.
  * @return Promise
  */
 export const getTasks = async () => {
