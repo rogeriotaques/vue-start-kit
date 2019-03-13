@@ -122,7 +122,7 @@ export default {
       cursor: pointer;
 
       &:hover {
-        color: #bbb;
+        color: #bbb !important;
       } // .btn.checkmark:hover
 
       > .eva {
@@ -142,12 +142,14 @@ export default {
       text-decoration: line-through;
     }
 
-    .btn.checkmark {
+    .btn.checkmark,
+    .btn.checkmark:active,
+    .btn.checkmark:focus {
       color: #90ee90;
       font-weight: bolder;
 
       &:hover {
-        color: darken(#90ee90, 10%);
+        color: darken(#90ee90, 10%) !important;
       } // .btn.checkmark:hover
 
       > .eva::after {

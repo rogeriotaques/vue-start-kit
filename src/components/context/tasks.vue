@@ -38,9 +38,10 @@
       span Hooray! No open tasks. <br >
       span.secondary <a href="javascript:location.reload();">Refresh the browser</a> to see all the tasks again.
 
-    dl(v-if="isDataLoaded && countTotalTasks > 0").tasks.mt-0
+    transition-group(v-if="isDataLoaded && countTotalTasks > 0", name="fade", tag="dl", appear).tasks.mt-0
       task-item(
         v-for="task in getTasks()",
+        v-bind:key="task.id"
         v-bind:task="task"
         v-on:complete="() => complete(task)"
         v-on:unhide="() => edit({task, editing: true})"
@@ -151,13 +152,27 @@ export default {
 
 
 <style lang="scss" >
-// Fixture for SeedCSS tooltip
-// Not needed after 2.1.2
-.with-tooltip {
-  &::before,
-  &::after {
-    z-index: 100;
+@keyframes bounce-up {
+  from {
+    margin-top: -25px;
+    opacity: 0;
+    z-index: -1;
   }
+  to {
+    margin-top: 0;
+    opacity: 1;
+    z-index: inherit;
+  }
+}
+
+// Animate when adding the element
+.fade-enter-active {
+  animation: bounce-up 0.3s;
+}
+
+// Animate when removing the element
+.fade-leave-active {
+  animation: bounce-up 0.3s reverse;
 }
 
 .field {
