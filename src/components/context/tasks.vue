@@ -54,8 +54,8 @@
 <script lang="ts">
 import { Task } from "~/domain/interfaces";
 import { mapGetters } from "vuex";
-import BaseSpinner from "~/components/base/spinner.vue";
-import BaseButton from "~/components/base/button.vue";
+import BaseSpinner from "~/components/seed/spinner.vue";
+import BaseButton from "~/components/seed/button.vue";
 import TaskItem from "~/components/context/task-item.vue";
 import { getTasks } from "../../domain/network";
 
