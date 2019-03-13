@@ -38,9 +38,8 @@
 </template>
 
 <script lang="ts">
-
 import { Task } from "~/domain/interfaces";
-import BaseButton from '~/components/base/button.vue';
+import BaseButton from "~/components/seed/button.vue";
 
 export default {
   name: "TaskItem",
@@ -51,7 +50,7 @@ export default {
 
   props: {
     task: {
-      type: Task
+      type: Object as () => Task,
       required: true
     }
   },
@@ -60,27 +59,27 @@ export default {
   // parents. All it needs to do is emit signs for its actions.
   methods: {
     onComplete() {
-      this.$emit('complete');
+      this.$emit("complete");
     }, // onComplete
 
     onUnhide() {
-      this.$emit('unhide');
+      this.$emit("unhide");
     }, // onUnhide
 
     onHide() {
-      this.$emit('hide');
+      this.$emit("hide");
     }, // onHide
 
     onRemove() {
-      this.$emit('remove');
+      this.$emit("remove");
     }, // onRemove
 
     onUpdate(evt: any) {
-      this.$emit('update', evt);
+      this.$emit("update", evt);
     }, // onUpdate
 
     onKeypress(evt: any) {
-      this.$emit('keypress', evt);
+      this.$emit("keypress", evt);
     } // onKeypress
   }
 };
