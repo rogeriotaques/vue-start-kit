@@ -7,7 +7,7 @@
   #tasks
     div.mt-20.tasks-header
       p.counter.place-left.mb-0
-        base-button(
+        seed-button(
           tooltip="Mark all as done"
           v-bind:click="() => complete()"
         ).link.small.check-all.with-tooltip.bottom
@@ -16,7 +16,7 @@
         span {{countTotalTasks}} tasks listed.
 
       p(v-if="isDataLoaded && countTotalTasks > 0").place-right.mb-0
-        base-button(
+        seed-button(
           tooltip="Remove All"
           v-bind:click="() => remove()"
         ).link.small.with-tooltip.bottom.remove-all
@@ -32,7 +32,7 @@
         v-on:change="add($event)"
       )
 
-    base-spinner(v-if="!isDataLoaded").mt-30
+    seed-spinner(v-if="!isDataLoaded").mt-30
 
     p(v-if="isDataLoaded && countTotalTasks === 0").alert.info.align-center.mt-30
       span Hooray! No open tasks. <br >

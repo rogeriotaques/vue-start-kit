@@ -8,7 +8,7 @@
     v-bind:key="task.id"
     v-bind:class="{done: task.complete}"
   ).task-item
-    base-button(
+    seed-button(
       tooltip="Mark as done"
       v-bind:click="onComplete"
     ).link.small.checkmark.with-tooltip.bottom
@@ -30,7 +30,7 @@
       v-on:keypress="evt => onKeypress(evt)"
     )
 
-    base-button(
+    seed-button(
       tooltip="Remove task",
       v-bind:click="onRemove"
     ).link.small.with-tooltip.bottom.place-right

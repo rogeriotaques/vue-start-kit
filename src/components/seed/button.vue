@@ -1,11 +1,11 @@
 <template lang="pug" >
   button(v-on:click="click").btn
-    slot Base Button
+    slot Seed Button
 </template>
 
 <script lang="ts" >
 export default {
-  name: 'BaseButton',
+  name: "SeedButton",
 
   props: {
     click: {
@@ -13,5 +13,5 @@ export default {
       required: true
     }
   }
-}
+};
 </script>
