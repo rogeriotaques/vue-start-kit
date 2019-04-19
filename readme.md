@@ -93,11 +93,8 @@ SOFTWARE.
 
 ## Who's (teams or projects) using it?
 
-<a href="https://repotenshoku.com/en" title="Repo Tenshoku" >
-  <img src="https://repotenshoku.com/assets/img/logo.png" alt="RepoTenshoku Team" style="max-height: 30px; vertical-align: middle;" /></a> &nbsp;&nbsp;
-
-<a href="https://mailshld.com" title="Mail Shield" >
-  <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" style="max-height: 40px; vertical-align: middle;" /></a>
+[![RepoTenshoku](https://repotenshoku.com/assets/img/logo.png | height=30)](https://repotenshoku.com/en) &nbsp;&nbsp;
+[![Mail Shield](https://mailshld.com/assets/images/logo-transparent@2x.png | height=40)](https://mailshld.com) &nbsp;&nbsp;
 
 <p ><br ></p>
 
