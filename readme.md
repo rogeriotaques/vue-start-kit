@@ -97,7 +97,7 @@ SOFTWARE.
   <img src="https://repotenshoku.com/assets/img/logo.png" alt="RepoTenshoku Team" height="30" /></a> &nbsp;&nbsp;
 
 <a href="https://mailshld.com" title="Mail Shield" >
-  <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="40" /></a>
+  <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="60" /></a>
 
 <p ><br ></p>
 
