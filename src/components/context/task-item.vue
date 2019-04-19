@@ -11,8 +11,8 @@
     seed-button(
       tooltip="Mark as done"
       v-bind:click="onComplete"
-    ).link.small.checkmark.with-tooltip.bottom
-      i.eva.eva-checkmark-outline
+    ).btn.link.small.checkmark.with-tooltip.bottom
+      i.fa.fas.fa-check
 
     div(
       v-if="!task.editing"
@@ -32,20 +32,21 @@
 
     seed-button(
       tooltip="Remove task",
+      role="delete",
       v-bind:click="onRemove"
     ).link.small.with-tooltip.bottom.place-right
-      i.eva.eva-trash-outline
+      i.fa.far.fa-trash-alt
 </template>
 
 <script lang="ts">
 import { Task } from "~/domain/interfaces";
-import BaseButton from "~/components/seed/button.vue";
+import SeedButton from "~/components/seed/button.vue";
 
 export default {
   name: "TaskItem",
 
   components: {
-    BaseButton
+    SeedButton
   },
 
   props: {
@@ -113,22 +114,32 @@ export default {
     min-width: auto;
     flex: 1;
 
-    > .eva {
+    > .fa {
       font-size: 2rem;
-    } // .btn > .eva
+    } // .btn > .fa
 
     &.checkmark {
       color: #d5d5d5;
       cursor: pointer;
 
+      &:active,
+      &:focus,
       &:hover {
         color: #bbb !important;
       } // .btn.checkmark:hover
 
-      > .eva {
+      > .fa {
         font-size: 2.5rem;
-      } // .btn.checkmark > .eva
+      } // .btn.checkmark > .fa
     } // .btn.checkmark
+
+    &[role="delete"] {
+      color: #aaa;
+
+      &:hover {
+        color: red !important;
+      }
+    }
   }
 
   &.done {
@@ -148,21 +159,23 @@ export default {
       color: #90ee90;
       font-weight: bolder;
 
+      &:active,
+      &:focus,
       &:hover {
         color: darken(#90ee90, 10%) !important;
       } // .btn.checkmark:hover
 
-      > .eva::after {
+      > .fa::after {
         content: "";
         display: block;
         border: 2px solid #90ee90;
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         border-radius: 25px;
         position: absolute;
-        top: -2px;
-        left: -2px;
-      } // .btn.checkmark > .eva::after
+        top: -5px;
+        left: 17px;
+      } // .btn.checkmark > .fa::after
     } // .btn.checkmark
   } // .task-item.done
 } // .task-item

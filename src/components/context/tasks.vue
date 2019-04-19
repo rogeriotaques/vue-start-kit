@@ -9,18 +9,20 @@
       p.counter.place-left.mb-0
         seed-button(
           tooltip="Mark all as done"
+          role="mark-all"
           v-bind:click="() => complete()"
         ).link.small.check-all.with-tooltip.bottom
-          i.eva.eva-checkmark-outline
+          i.fa.fas.fa-check
 
         span {{countTotalTasks}} tasks listed.
 
       p(v-if="isDataLoaded && countTotalTasks > 0").place-right.mb-0
         seed-button(
           tooltip="Remove All"
+          role="delete-all"
           v-bind:click="() => remove()"
         ).link.small.with-tooltip.bottom.remove-all
-          i.eva.eva-trash-outline
+          i.fa.far.fa-trash-alt
 
       br(style="clear: both;")
 
@@ -55,8 +57,8 @@
 <script lang="ts">
 import { Task } from "~/domain/interfaces";
 import { mapGetters } from "vuex";
-import BaseSpinner from "~/components/seed/spinner.vue";
-import BaseButton from "~/components/seed/button.vue";
+import SeedSpinner from "~/components/seed/spinner.vue";
+import SeedButton from "~/components/seed/button.vue";
 import TaskItem from "~/components/context/task-item.vue";
 import { getTasks } from "../../domain/network";
 
@@ -64,8 +66,8 @@ export default {
   name: "Tasks",
 
   components: {
-    BaseButton,
-    BaseSpinner,
+    SeedButton,
+    SeedSpinner,
     TaskItem
   },
 
@@ -189,9 +191,22 @@ export default {
 
 .check-all,
 .remove-all {
-  margin: 0;
+  margin: 0 10px;
   min-width: auto;
   cursor: pointer;
+  color: #aaa;
+
+  &[role="mark-all"] {
+    &:hover {
+      color: #90ee90 !important;
+    }
+  }
+
+  &[role="delete-all"] {
+    &:hover {
+      color: red !important;
+    }
+  }
 } // .remove-all
 
 .tasks {
@@ -203,9 +218,8 @@ export default {
     border: thin solid #ccc;
     border-bottom: 0;
 
-    .eva {
+    .fa {
       font-size: 2rem;
-      color: #aaa;
     }
   } // .tasks-header
 

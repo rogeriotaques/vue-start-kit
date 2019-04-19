@@ -1,5 +1,5 @@
 <template lang="pug" >
-  button(v-on:click="click", v-bind:class="getClass").btn
+  button(v-on:click="click", v-bind:class="getClass")
     slot Seed Button
 </template>
 
@@ -24,8 +24,8 @@ export default {
 
   computed: {
     getClass() {
-      const classes = [this.type, this.size];
-      return classes.join(" ");
+      const classes: any = [this.type, this.size];
+      return `btn ${classes.join(" ")}`;
     }
   }
 };
