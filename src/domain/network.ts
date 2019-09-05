@@ -3,7 +3,7 @@
  *
  * This is handling the abstractions for making API requests.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

@@ -9,7 +9,7 @@
  * can do it in one place instead of having to do it separately for each
  * component.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

@@ -3,7 +3,7 @@
  *
  * This file tells Typescript (on Visual Studio Code) about Vue
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

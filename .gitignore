@@ -1,5 +1,4 @@
 dist/
 node_modules/
-.cache/
 npm-debug.log
 .DS_Store

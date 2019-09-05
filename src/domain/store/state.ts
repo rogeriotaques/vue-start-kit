@@ -7,7 +7,7 @@
  * this data and when it changes your component will update itself. This is
  * the “single source of truth” in your application.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

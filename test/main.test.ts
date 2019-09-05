@@ -3,7 +3,7 @@
  *
  * This is the test entry point.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

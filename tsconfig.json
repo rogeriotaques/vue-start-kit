@@ -10,7 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "mocha"],
+    "types": ["node", "mocha", "vue"],
     "rootDirs": ["./src", "./src/components", "./src/domain"],
     "paths": {
       "~/*": ["./src/*"]

@@ -5,7 +5,7 @@
  * the type we may use in the APP. Eventually, this will scalate and
  * split this file into others will be inevitable.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

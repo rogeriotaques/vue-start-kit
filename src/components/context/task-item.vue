@@ -1,6 +1,6 @@
 // Vue Start Kit
 // This component renders a list of tasks.
-// @author Rogerio Taques (hello@abtz.co)
+// @author Rogerio Taques
 // @license MIT
 
 <template lang="pug">

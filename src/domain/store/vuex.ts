@@ -7,7 +7,7 @@
  * so outside components can not directly modify the state. To mutate
  * the state, components can dispatch an action or commit a mutation.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

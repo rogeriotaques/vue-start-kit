@@ -1,6 +1,6 @@
 // Vue Start Kit
 // This is the main component from our sample app.
-// @author Rogerio Taques (hello@abtz.co)
+// @author Rogerio Taques
 // @license MIT
 
 <template lang="pug">

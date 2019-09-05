@@ -1,5 +1,3 @@
-import { connect } from 'tls';
-
 /**
  * Vue Start Kit
  *
@@ -12,7 +10,7 @@ import { connect } from 'tls';
  * An action will dispatch a mutation, which will directly update the
  * state.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

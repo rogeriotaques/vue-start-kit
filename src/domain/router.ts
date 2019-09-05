@@ -3,7 +3,7 @@
  *
  * This is where all the routes are defined.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 

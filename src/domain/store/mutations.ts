@@ -1,5 +1,3 @@
-import { stat } from 'fs';
-
 /**
  * Vue Start Kit
  *
@@ -11,7 +9,7 @@ import { stat } from 'fs';
  * Mutations should be the only way used to update your state, to keep your
  * state management predictable.
  *
- * @author Rogerio Taques (hello@abtz.co)
+ * @author Rogerio Taques
  * @license MIT
  */
 
@@ -65,9 +63,7 @@ export const mutations = {
    * @param payload
    */
   update(state: State, payload: { task: Task; data: Task }) {
-    let task: Task | undefined = state.tasks.find(
-      (task: Task) => task.id === payload.task.id
-    );
+    let task: Task | undefined = state.tasks.find((task: Task) => task.id === payload.task.id);
 
     if (task) {
       task = Object.assign(payload.task, payload.data);
