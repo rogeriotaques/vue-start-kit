@@ -1,11 +1,11 @@
-<template lang="pug" >
+<template lang="pug">
   button(v-on:click="click", v-bind:class="getClass")
     slot Seed Button
 </template>
 
-<script lang="ts" >
+<script lang="ts">
 export default {
-  name: "SeedButton",
+  name: 'SeedButton',
 
   props: {
     click: {
@@ -17,7 +17,7 @@ export default {
       required: false
     },
     size: {
-      type: String as () => "small" | "medium" | "big" | null,
+      type: String as () => 'small' | 'medium' | 'big' | null,
       required: false
     }
   },
@@ -25,7 +25,7 @@ export default {
   computed: {
     getClass() {
       const classes: any = [this.type, this.size];
-      return `btn ${classes.join(" ")}`;
+      return `btn ${classes.join(' ')}`;
     }
   }
 };

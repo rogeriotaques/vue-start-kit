@@ -1,7 +1,4 @@
-// Vue Start Kit
-// This is the main component from our sample app.
-// @author Rogerio Taques
-// @license MIT
+// Vue Start Kit // This is the main component from our sample app. // @author Rogerio Taques // @license MIT
 
 <template lang="pug">
   .container
@@ -25,13 +22,11 @@
 
 <script lang="ts">
 export default {
-  name: "App",
+  name: 'App',
 
   mounted() {
     // When this component is mounted, calls the API
-    this.$store.dispatch("getFromAPI");
+    this.$store.dispatch('getFromAPI');
   }
 };
 </script>
-
-

@@ -8,8 +8,6 @@
  */
 
 // Optional. Makes async/await work in most browsers.
-import '@babel/polyfill';
-
 import Vue from 'vue';
 import { router } from '~/domain/router';
 import { store } from '~/domain/store/vuex';

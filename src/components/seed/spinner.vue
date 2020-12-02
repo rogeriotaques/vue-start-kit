@@ -1,10 +1,10 @@
-<template lang="pug" >
+<template lang="pug">
   div.align-center
     div(data-label="Loading ...").spinner
 </template>
 
-<script lang="ts" >
+<script lang="ts">
 export default {
-  name: "SeedSpinner"
+  name: 'SeedSpinner'
 };
 </script>

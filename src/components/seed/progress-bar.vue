@@ -1,4 +1,4 @@
-<template lang="pug" >
+<template lang="pug">
   div.progress-bar(
     v-bind:class="{'undefined': isUndefined || false}"
   )
@@ -6,9 +6,9 @@
     label(v-html="label", v-if="!isUndefined && label")
 </template>
 
-<script lang="ts" >
+<script lang="ts">
 export default {
-  name: "SeedProgressBar",
+  name: 'SeedProgressBar',
 
   props: {
     isUndefined: {

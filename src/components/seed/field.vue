@@ -1,4 +1,4 @@
-<template lang="pug" >
+<template lang="pug">
   div(
     v-bind:class="{'has-feedback': hasFeedback}"
   ).field
@@ -9,13 +9,13 @@
     )
 
     input(
-      v-bind:type="type || 'text'", 
-      v-bind:name="name || 'myfield'", 
-      v-bind:id="name || 'myfield'", 
-      v-bind:placeholder="placeholder || ''", 
-      v-bind:value="value || ''", 
-      v-bind:maxLength="maxLength || ''", 
-      v-bind:required="required || false", 
+      v-bind:type="type || 'text'",
+      v-bind:name="name || 'myfield'",
+      v-bind:id="name || 'myfield'",
+      v-bind:placeholder="placeholder || ''",
+      v-bind:value="value || ''",
+      v-bind:maxLength="maxLength || ''",
+      v-bind:required="required || false",
       v-bind:disabled="disabled || false"
       v-bind:class="hasFeedback"
       v-bind:autofocus="autofocus ? 'autofocus' : false"
@@ -42,22 +42,13 @@
     ).info
 </template>
 
-<script lang="ts" >
+<script lang="ts">
 export default {
-  name: "SeedField",
+  name: 'SeedField',
 
   props: {
     type: {
-      type: String as () =>
-        | "text"
-        | "search"
-        | "url"
-        | "email"
-        | "tel"
-        | "password"
-        | "range"
-        | "radio"
-        | "checkbox",
+      type: String as () => 'text' | 'search' | 'url' | 'email' | 'tel' | 'password' | 'range' | 'radio' | 'checkbox',
       required: false
     },
 
@@ -102,7 +93,7 @@ export default {
     },
 
     hasFeedback: {
-      type: String as () => "error" | "success",
+      type: String as () => 'error' | 'success',
       required: false
     },
 
