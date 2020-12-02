@@ -2,8 +2,12 @@
 
 <template lang="pug">
   .container
-    //- h5.align-center.m-0 - A ToDo (Sample) App with VueJS -
-    //- p.align-center by Abtz Labs | Rogerio Taques
+    h5.align-center.m-0 - ToDo (Sample) App with Vue Start Kit -
+    p.align-center by Rogerio Taques
+
+    p.align-center.
+      You can update this app by changing the
+      <code>./src/components/app.vue</code> file.
 
     //- UNCOMMENT THE NEXT LINES IF YOU WANNA ADD
     //- THE LINKS CONNECTED TO THE VUE-ROUTER
