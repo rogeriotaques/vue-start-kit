@@ -1,13 +1,6 @@
-import type { Config } from '@jest/types';
-
-const config: Config.InitialOptions = {
+module.exports = {
   verbose: true,
-  moduleFileExtensions: [
-    "ts",
-    "js",
-    "json",
-    "vue"
-  ],
+  moduleFileExtensions: ["ts", "js", "json", "vue"],
   transform: {
     ".*\\.(ts|js)$": "babel-jest",
     ".*\\.(ts)$": "ts-jest",
@@ -25,5 +18,3 @@ const config: Config.InitialOptions = {
     "!**/dist/**"
   ]
 };
-
-export default config;

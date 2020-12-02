@@ -22,6 +22,24 @@
         "ignoreRegExpLiterals": true,
         "ignoreStrings": true
       }
+    ],
+    "quote": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "require-jsdoc": [
+      "warn",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false
+        }
+      }
     ]
   }
 }

@@ -7,26 +7,26 @@
  * @license MIT
  */
 
-import assert from 'assert';
-import { getTasks } from '../src/domain/network';
+import { getTasks } from "~/domain/network";
 
-describe('Test Example', () => {
-  const text = 'Hello World';
+describe("Test Example", () => {
+  const text = "Hello World";
 
   it(`expects "${text}" length to be 11`, () => {
-    assert.equal(text.length, 11);
+    expect(text.length).toBe(11);
   });
 
   it(`expects "${text}" first char to be "H"`, () => {
-    assert.equal(text.charAt(0), 'H');
+    expect(text.charAt(0)).toBe("H");
   });
 
-  it('expects getTasks to return 5 records', (done) => {
-    getTasks()
-      .then((data) => {
-        assert.equal(data.length, 5);
-        done();
-      })
-      .catch((error) => done(error));
+  it("expects getTasks to return 5 records", async done => {
+    try {
+      const data = await getTasks();
+      expect(data.length).toBe(5);
+      done();
+    } catch (error) {
+      done(error);
+    }
   });
 });

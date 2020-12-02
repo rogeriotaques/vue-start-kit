@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "module": "es2015",
-    "target": "ES5",
-    "strict": false,
+    "module": "esnext",
+    "target": "esnext",
+    "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -33,6 +33,5 @@
   ],
   "files": [
     "vue.d.ts",
-    "interfaces.d.ts"
   ]
 }
