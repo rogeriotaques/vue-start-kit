@@ -33,7 +33,7 @@ export const mutations = {
    * @param state
    * @param payload
    */
-  load(state: State, payload: { tasks: Array<Task> | [] }) {
+  LOAD(state: State, payload: { tasks: Array<Task> | [] }) {
     if (payload.tasks.length) {
       payload.tasks.forEach((task) => {
         state.tasks.push(<never>createTask(task));
@@ -41,7 +41,7 @@ export const mutations = {
     }
 
     state.isLoadingData = false;
-  }, // load
+  }, // LOAD
 
   /**
    * Remove existing tasks from the state.
@@ -49,38 +49,38 @@ export const mutations = {
    * @param state
    * @param payload
    */
-  remove(state: State, payload?: { id: number }) {
+  REMOVE(state: State, payload?: { id: number }) {
     if (payload && payload.id) {
       state.tasks = state.tasks.filter((task: Task) => task.id !== payload.id);
     } else {
       state.tasks = [];
     }
-  }, // remove
+  }, // REMOVE
 
   /**
    * Updates any existing task in the state
    * @param state
    * @param payload
    */
-  update(state: State, payload: { task: Task; data: Task }) {
+  UPDATE(state: State, payload: { task: Task; data: Task }) {
     let task: Task | undefined = state.tasks.find((task: Task) => task.id === payload.task.id);
 
     if (task) {
       task = Object.assign(payload.task, payload.data);
     }
-  }, // update
+  }, // UPDATE
 
   /**
    * Adds a new task to the tasks list in the state
    * @param state
    * @param data
    */
-  add(state: State, data: Task) {
+  ADD(state: State, data: Task) {
     const newTask: Task = {
       ...data,
       id: state.tasks.length ? state.tasks.length + 1 : 1
     };
 
     state.tasks.push(<never>createTask(newTask));
-  } // add
+  } // ADD
 };

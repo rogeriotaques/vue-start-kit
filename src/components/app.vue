@@ -1,4 +1,10 @@
-// Vue Start Kit // This is the main component from our sample app. // @author Rogerio Taques // @license MIT
+<!--
+Vue Start Kit
+This is the main component from our sample app.
+
+@author Rogerio Taques
+@license MIT
+-->
 
 <template lang="pug">
   .container
@@ -7,7 +13,7 @@
 
     p.align-center.
       You can update this app by changing the
-      <code>./src/components/app.vue</code> file.
+      <code>src/components/app.vue</code> file.
 
     //- UNCOMMENT THE NEXT LINES IF YOU WANNA ADD
     //- THE LINKS CONNECTED TO THE VUE-ROUTER

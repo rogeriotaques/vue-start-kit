@@ -15,6 +15,7 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: Tasks }
+
   // Additional paths are coming here ...
   // Also possible to create a catch-all page (error page?)
   // { path: '/*', component: SampleError404 }
@@ -22,7 +23,7 @@ const routes = [
 
 export const router = new VueRouter({
   mode: 'history',
-  routes // short for `routes: routes`
+  routes
 });
 
 export default router;

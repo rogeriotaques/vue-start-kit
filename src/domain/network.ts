@@ -8,12 +8,13 @@
  */
 
 import axios from 'axios';
+import { Task } from '~/domain/interfaces';
 
 /**
  * An example of a network call.
  * @return Promise
  */
-export const getTasks = async () => {
+export const getTasks = async (): Promise<Task[]> => {
   const url = 'https://randomuser.me/api/?results=5';
 
   let json;

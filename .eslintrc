@@ -15,6 +15,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "max-len": [
       "error",
       {
@@ -24,7 +25,7 @@
         "ignoreStrings": true
       }
     ],
-    "quote": [
+    "quotes": [
       "error",
       "single",
       {

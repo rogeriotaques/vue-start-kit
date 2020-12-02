@@ -13,7 +13,7 @@
  * @license MIT
  */
 
-import { State, Task } from '~/domain/interfaces';
+import { State } from '~/domain/interfaces';
 
 export const getters = {
   /**

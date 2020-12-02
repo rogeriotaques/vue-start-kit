@@ -21,41 +21,45 @@ export const actions = {
   /**
    * Gather tasks from API and commits a mutation.
    * @param context
+   * @returns Promise
    */
-  async getFromAPI(context: any) {
+  async getFromAPI(context: any): Promise<void> {
     const tasks = await getTasks();
-    context.commit('load', { tasks });
+    context.commit('LOAD', { tasks });
   }, // getFromAPI
 
   /**
    * Commits the mutation to remove a single task from state
    * @param context
    * @param payload
+   * @returns void
    */
-  removeSingleTask(context: any, payload: { id: number }) {
-    context.commit('remove', payload);
+  removeSingleTask(context: any, payload: { id: number }): void {
+    context.commit('REMOVE', payload);
   }, // removeSingleTask
 
   /**
    * Commits a mutation to remove all the tasks from the state
    * @param context
+   * @returns void
    */
-  removeAllTasks(context: any) {
-    context.commit('remove');
+  removeAllTasks(context: any): void {
+    context.commit('REMOVE');
   }, // removeAllTasks
 
   /**
    * Commits a mutation to update the given task in the state
    * @param context
    * @param payload
+   * @returns void
    */
-  updateTask(context: any, payload: { task: Task; data: Task }) {
+  updateTask(context: any, payload: { task: Task; data: Task }): void {
     if (payload.task.text && payload.task.text.length === 0) {
       // Removes tasks with empty text
-      context.commit('remove', payload.task.id);
+      context.commit('REMOVE', payload.task.id);
     } else {
       // Updates task data
-      context.commit('update', {
+      context.commit('UPDATE', {
         task: payload.task,
         data: payload.data
       });
@@ -66,9 +70,10 @@ export const actions = {
    * Commits a mutation to add a new task in the state
    * @param context
    * @param text
+   * @returns void
    */
-  addNewTask(context: any, text: string) {
+  addNewTask(context: any, text: string): void {
     const newTask = { text };
-    context.commit('add', newTask);
+    context.commit('ADD', newTask);
   } // addNewTask
 };
