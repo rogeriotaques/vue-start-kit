@@ -1,5 +1,4 @@
-// Vue Start Kit // This component renders a list of tasks. // @author Rogerio
-Taques // @license MIT
+// Vue Start Kit // This component renders a list of tasks. // @author Rogerio Taques // @license MIT
 
 <template lang="pug">
   dt(
@@ -10,12 +9,12 @@ Taques // @license MIT
       tooltip="Mark as done"
       v-bind:click="onComplete"
     ).btn.link.small.checkmark.with-tooltip.bottom
-      i.fa.fas.fa-check
+      i(:class="{'eva': true, 'eva-checkmark-outline': !task.complete, 'eva-checkmark-circle-outline': task.complete}")
 
     div(
       v-if="!task.editing"
       v-on:click="onUnhide"
-    ).task-text {{task.text}}
+    ).task-text {{ task.text }}
 
     input(
       type="text",
@@ -33,15 +32,15 @@ Taques // @license MIT
       role="delete",
       v-bind:click="onRemove"
     ).link.small.with-tooltip.bottom.place-right
-      i.fa.far.fa-trash-alt
+      i.eva.eva-trash-outline
 </template>
 
 <script lang="ts">
-import { Task } from "~/domain/interfaces";
-import SeedButton from "~/components/seed/button.vue";
+import SeedButton from '~/components/seed/button.vue';
+import { Task } from '~/domain/interfaces';
 
 export default {
-  name: "TaskItem",
+  name: 'TaskItem',
 
   components: {
     SeedButton
@@ -58,27 +57,27 @@ export default {
   // parents. All it needs to do is emit signs for its actions.
   methods: {
     onComplete() {
-      this.$emit("complete");
+      this.$emit('complete');
     }, // onComplete
 
     onUnhide() {
-      this.$emit("unhide");
+      this.$emit('unhide');
     }, // onUnhide
 
     onHide() {
-      this.$emit("hide");
+      this.$emit('hide');
     }, // onHide
 
     onRemove() {
-      this.$emit("remove");
+      this.$emit('remove');
     }, // onRemove
 
     onUpdate(evt: any) {
-      this.$emit("update", evt);
+      this.$emit('update', evt);
     }, // onUpdate
 
     onKeypress(evt: any) {
-      this.$emit("keypress", evt);
+      this.$emit('keypress', evt);
     } // onKeypress
   }
 };
@@ -112,9 +111,9 @@ export default {
     min-width: auto;
     flex: 1;
 
-    > .fa {
+    > .eva {
       font-size: 2rem;
-    } // .btn > .fa
+    } // .btn > .eva
 
     &.checkmark {
       color: #d5d5d5;
@@ -125,13 +124,9 @@ export default {
       &:hover {
         color: #bbb !important;
       } // .btn.checkmark:hover
-
-      > .fa {
-        font-size: 2.5rem;
-      } // .btn.checkmark > .fa
     } // .btn.checkmark
 
-    &[role="delete"] {
+    &[role='delete'] {
       color: #aaa;
 
       &:hover {
@@ -163,21 +158,21 @@ export default {
         color: darken(#90ee90, 10%) !important;
       } // .btn.checkmark:hover
 
-      > .fa {
-        position: relative;
+      // > .fa {
+      //   position: relative;
 
-        &::after {
-          content: "";
-          display: block;
-          border: 2px solid #90ee90;
-          width: 30px;
-          height: 30px;
-          border-radius: 25px;
-          position: absolute;
-          top: -5px;
-          left: -5px;
-        } // .btn.checkmark > .fa::after
-      }
+      //   &::after {
+      //     content: '';
+      //     display: block;
+      //     border: 2px solid #90ee90;
+      //     width: 30px;
+      //     height: 30px;
+      //     border-radius: 25px;
+      //     position: absolute;
+      //     top: -5px;
+      //     left: -5px;
+      //   } // .btn.checkmark > .fa::after
+      // }
     } // .btn.checkmark
   } // .task-item.done
 } // .task-item

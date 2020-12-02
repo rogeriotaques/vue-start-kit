@@ -1,5 +1,4 @@
-// Vue Start Kit // This component renders a list of tasks. // @author Rogerio
-Taques // @license MIT
+// Vue Start Kit // This component renders a list of tasks. // @author Rogerio Taques // @license MIT
 
 <template lang="pug">
   #tasks
@@ -10,7 +9,7 @@ Taques // @license MIT
           role="mark-all"
           v-bind:click="() => complete()"
         ).link.small.check-all.with-tooltip.bottom
-          i.fa.fas.fa-check
+          i.eva.eva-done-all-outline
 
         span {{countTotalTasks}} tasks listed.
 
@@ -20,7 +19,7 @@ Taques // @license MIT
           role="delete-all"
           v-bind:click="() => remove()"
         ).link.small.with-tooltip.bottom.remove-all
-          i.fa.far.fa-trash-alt
+          i.eva.eva-trash-outline
 
       br(style="clear: both;")
 
@@ -53,15 +52,17 @@ Taques // @license MIT
 </template>
 
 <script lang="ts">
-import { Task } from "~/domain/interfaces";
-import { mapGetters } from "vuex";
-import SeedSpinner from "~/components/seed/spinner.vue";
-import SeedButton from "~/components/seed/button.vue";
-import TaskItem from "~/components/context/task-item.vue";
-import { getTasks } from "../../domain/network";
+import { mapGetters } from 'vuex';
+
+import SeedSpinner from '~/components/seed/spinner.vue';
+import SeedButton from '~/components/seed/button.vue';
+import TaskItem from '~/components/context/task-item.vue';
+
+import { Task } from '~/domain/interfaces';
+import { getTasks } from '~/domain/network';
 
 export default {
-  name: "Tasks",
+  name: 'Tasks',
 
   components: {
     SeedButton,
@@ -71,7 +72,7 @@ export default {
 
   computed: {
     // Mapping the getters is the easiest way of get common computed data
-    ...mapGetters(["isDataLoaded", "countTotalTasks"])
+    ...mapGetters(['isDataLoaded', 'countTotalTasks'])
   },
 
   // All the component methods
@@ -82,15 +83,15 @@ export default {
 
     remove(id?: number): void {
       if (id) {
-        this.$store.dispatch("removeSingleTask", { id });
+        this.$store.dispatch('removeSingleTask', { id });
       } else {
-        this.$store.dispatch("removeAllTasks");
+        this.$store.dispatch('removeAllTasks');
       }
     }, // remove
 
     complete(task?: Task): void {
       if (task) {
-        this.$store.dispatch("updateTask", {
+        this.$store.dispatch('updateTask', {
           task,
           data: { complete: !task.complete }
         });
@@ -98,7 +99,7 @@ export default {
         const { tasks } = this.$store.state;
 
         tasks.forEach((task: Task) => {
-          this.$store.dispatch("updateTask", {
+          this.$store.dispatch('updateTask', {
             task,
             data: { complete: true }
           });
@@ -107,7 +108,7 @@ export default {
     }, // complete
 
     edit(payload: { task: Task; editing: boolean }): void {
-      this.$store.dispatch("updateTask", {
+      this.$store.dispatch('updateTask', {
         task: payload.task,
         data: { editing: payload.editing }
       });
@@ -116,9 +117,7 @@ export default {
         // If editing (visible input), put the focus on it.
         // Using timeout to workaround the timing to display it.
         setTimeout(() => {
-          const target: any = document.getElementById(
-            `task-${payload.task.id}`
-          );
+          const target: any = document.getElementById(`task-${payload.task.id}`);
 
           target.select();
           target.focus();
@@ -131,20 +130,20 @@ export default {
 
       if (code === 13) {
         // Always the ENTER key is pressed
-        this.$store.dispatch("updateTask", { task, data: { editing: false } });
+        this.$store.dispatch('updateTask', { task, data: { editing: false } });
       }
     }, // keypressed
 
     update(task: Task, evt: any) {
-      this.$store.dispatch("updateTask", {
+      this.$store.dispatch('updateTask', {
         task,
         data: { text: evt.target.value, complete: false }
       });
     }, // update
 
     add(event: any) {
-      this.$store.dispatch("addNewTask", event.target.value);
-      event.target.value = "";
+      this.$store.dispatch('addNewTask', event.target.value);
+      event.target.value = '';
     } // add
   }
 };
@@ -193,13 +192,13 @@ export default {
   cursor: pointer;
   color: #aaa;
 
-  &[role="mark-all"] {
+  &[role='mark-all'] {
     &:hover {
       color: #90ee90 !important;
     }
   }
 
-  &[role="delete-all"] {
+  &[role='delete-all'] {
     &:hover {
       color: red !important;
     }
@@ -215,14 +214,16 @@ export default {
     border: thin solid #ccc;
     border-bottom: 0;
 
-    .fa {
+    .eva {
       font-size: 2rem;
+      display: inline-block;
+      vertical-align: middle;
     }
   } // .tasks-header
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: relative;
     border-bottom: thin solid #aaa;
