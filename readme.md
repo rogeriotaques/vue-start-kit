@@ -16,7 +16,7 @@
 
 ## What is this?
 
-Just another starter-kit 🤷🏻‍♂️ for [Vue.js](https://vuejs.org/) ready with:
+Just another starter-kit 😅 to bootstrap [Vue.js](https://vuejs.org/) applications, ready with:
 
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue-Router](https://router.vuejs.org/)
@@ -25,23 +25,25 @@ Just another starter-kit 🤷🏻‍♂️ for [Vue.js](https://vuejs.org/) read
 - [TypeScript](https://www.typescriptlang.org/)
 - [Eslint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
-- [Eva Icons](https://akveo.github.io/eva-icons/) and
+- [Eva Icons](https://akveo.github.io/eva-icons/)
 - [Seed-CSS](http://rogeriotaques.github.io/seed-css/) (lightweight CSS boilerplate)
 
-**Found a bug 🐞?**
+## Why should you use this?
 
-- [Open an Issue](https://github.com/rogeriotaques/vue-start-kit/issues) and I'll take care of it
-- Or you can fix it and [submit a pull request](https://github.com/rogeriotaques/vue-start-kit/pulls) 🙇‍♂️
+You may want to use this starter-kit to quickly bootstrap small and simple apps.
 
-## What do you get using this?
+I've prepared it as a boilerplate app that is ready to easily get up and running with side projects without the need to go thru all the steps from the (official) vue-cli. Therefore, it might be kinda opinionated, but it's still super flexible for customizations.
 
-- 🚀 Start building your app super fast
+Here's what you get in this bundle 👇
+
+- 🚀 Quick to start coding your app (side projects?)
 - 🙌 Very clean and intuitive file structure
 - 🔥 Live programing environment (with Hot Module Replacement)
 - 🎯 Linter and Vue Coding Guidelines up an running
-- 💪 A stable code-base with TypeScript
-- 😇 No webpack config file
-- ✅ A well commented and easy to understand source-code
+- 💪 Pre configured unit tests
+- 😇 No webpack config files
+- ✅ Well commented and easy to understand source-code
+- 💡 A sample (ToDo 🤷🏻‍♂️) app
 
 ## Get started
 
@@ -62,7 +64,7 @@ $ yarn start  # or npm start
 
 Hooray! 🎉 At this point we should be up and running.
 
-From now on, everything you change in the `source-code` will trigger an imediate update on the browser (_without refresh_) preserving the current state of your newly created app.
+From now on, everything you change in the `source-code` will trigger an immediate update on the browser (_without refresh_) preserving the current state of your newly created app.
 
 ## Building for production
 
@@ -72,7 +74,7 @@ Once your app is ready to be distributed, run:
 $ yarn build  # or npm run build
 ```
 
-This will create the `dist/` directory with all the transpiled files from your app, ready to be deployed to your servers. 🚀
+This will create the `dist/` directory with all the compiled files from your app, ready to be deployed to your servers. 🚀
 
 ## Contributing
 
@@ -82,7 +84,7 @@ You can simply start by:
 
 1. Forking this repository;
 2. Changing and implementing what you think necessary;
-3. Implementing the Unit Tests (with [Jest](https://jestjs.io/));
+3. Implementing the unit tests (with [Jest](https://jestjs.io/));
 4. Submitting a pull-request.
 
 ## Unit tests
@@ -94,6 +96,14 @@ Run the following command to start executing the existing tests:
 ```sh
 $ yarn test   # or npm run test
 ```
+
+## Found a 🐞 (bug)?
+
+Shame on me! 😊 But you know, that may happen!
+
+- [Open an Issue](https://github.com/rogeriotaques/vue-start-kit/issues) and I'll take care of it
+- Or you can fix it and [submit a pull request](https://github.com/rogeriotaques/vue-start-kit/pulls) 🙇‍♂️
+
 
 ## License
 
@@ -108,7 +118,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Who's using it?
+## Where this's been used?
+
+I'm using this starter-kit on these projects 👇
+
+<p ><br ></p>
 
 <table style="width: 100%;">
   <tbody >
@@ -133,9 +147,17 @@ SOFTWARE.
 
 <p ><br ></p>
 
-Want to see your logo here? [Get in touch](https://twitter.com/rogeriotaques).
+Are you also using it and want some free advertisement? 😬 [Get in touch](https://twitter.com/rogeriotaques) and I will place your logo here with a back-link to your project.
 
-## Be a sponsor
+## Help me keeping improving it! 🙏
 
-Help me to keep improving this (and [other](https://github.com/rogeriotaques) open-source projects) by sponsoring me with a [Coffee](https://paypal.me/abtzlabs) ☕️!
+I make this project 100% on my spare time. And even though this page (and the source-code) is hosted on Github, free of charge, coding and maintaining it consumes an important and precious resource of mine ... time.
+
+So, if you think that all this effort is creating value in some way to you, be it helping you to bootstrap side-projects, quickly prototype and show up your next unicorn 🦄, etc, please consider contributing to keep me up! 💪
+
+There're a few different ways you can contribute:
+
+- Be my reviewer. Check my code and suggest improvements
+- Be my sponsor with a single contribution of [$2.50](https://paypal.me/abtzlabs/2.5USD), [$5](https://paypal.me/abtzlabs/5USD) or [$10](https://paypal.me/abtzlabs/10USD) (via Paypal)
+- Be my boss 😬, with a monthly [sponsorship](https://github.com/sponsors/rogeriotaques) (via Github)
 
