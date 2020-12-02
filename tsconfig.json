@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
+    "module": "es2015",
+    "target": "ES5",
+    "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -10,12 +10,29 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "mocha", "vue"],
-    "rootDirs": ["./src", "./src/components", "./src/domain"],
     "paths": {
-      "~/*": ["./src/*"]
-    }
+      "~/*": [
+        "./src/*"
+      ],
+    },
+    "rootDirs": [
+      "./src"
+    ],
+    "lib": [],
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "./src/**/*.js",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "vue.d.ts",
+    "interfaces.d.ts"
+  ]
 }

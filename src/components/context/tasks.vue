@@ -1,7 +1,5 @@
-// Vue Start Kit
-// This component renders a list of tasks.
-// @author Rogerio Taques
-// @license MIT
+// Vue Start Kit // This component renders a list of tasks. // @author Rogerio
+Taques // @license MIT
 
 <template lang="pug">
   #tasks
@@ -140,7 +138,7 @@ export default {
     update(task: Task, evt: any) {
       this.$store.dispatch("updateTask", {
         task,
-        data: { text: evt.target.value }
+        data: { text: evt.target.value, complete: false }
       });
     }, // update
 
@@ -152,8 +150,7 @@ export default {
 };
 </script>
 
-
-<style lang="scss" >
+<style lang="scss">
 @keyframes bounce-up {
   from {
     margin-top: -25px;
@@ -252,4 +249,3 @@ export default {
   }
 } // .tasks
 </style>
-

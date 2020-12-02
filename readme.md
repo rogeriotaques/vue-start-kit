@@ -89,12 +89,12 @@ You can simply start by:
 
 ## Unit tests
 
-The unit tests are written using `Jest` and they can be found in `__test__/`.
+The unit tests are written using `Jest` and they can be found in `src/__test__`.
 
 Run the following command to start executing the existing tests:
 
 ```sh
-$ yarn test   # or npm run test
+$ yarn unit   # or npm run test
 ```
 
 ## Found a 🐞 (bug)?

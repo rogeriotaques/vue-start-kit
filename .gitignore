@@ -1,4 +1,14 @@
+# Application related files
+.env
+
+# The distribution directory
 dist/
+
+# Javascript dependencies
 node_modules/
+
+# Log files
 npm-debug.log
+
+# Other OS config files
 .DS_Store

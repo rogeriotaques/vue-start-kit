@@ -1,13 +1,15 @@
 {
   "name": "vue-start-kit",
-  "version": "1.3.1",
-  "description": "A boring Vue start kit made with interesting packages. 🚀",
+  "version": "2.0.0",
+  "description": "Just another starter-kit 😅 to bootstrap Vue applications.",
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel src/index.pug --open --no-cache",
     "build": "NODE_ENV=production parcel build src/index.pug --cache-dir=./dist/.cache",
-    "test": "jest"
+    "lint": "eslint ./src/* --ext .ts,.js",
+    "unit": "jest"
   },
+  "repository": "git@github.com:rogeriotaques/vue-start-kit.git",
   "author": "Rogerio Taques",
   "license": "MIT",
   "dependencies": {
@@ -20,13 +22,16 @@
     "vuex": "^3.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.0.0-0",
     "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.16",
     "@vue/component-compiler-utils": "^3.2.0",
     "@vue/composition-api": "^1.0.0-beta.20",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.0.0",
     "browserslist": "^4.15.0",
     "eslint": "^7.14.0",
     "eslint-config-standard": "^16.0.2",

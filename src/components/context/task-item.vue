@@ -1,7 +1,5 @@
-// Vue Start Kit
-// This component renders a list of tasks.
-// @author Rogerio Taques
-// @license MIT
+// Vue Start Kit // This component renders a list of tasks. // @author Rogerio
+Taques // @license MIT
 
 <template lang="pug">
   dt(
@@ -86,7 +84,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 .task-item {
   padding: 10px 10px 5px;
   border-bottom: thin solid #ccc;
@@ -165,19 +163,22 @@ export default {
         color: darken(#90ee90, 10%) !important;
       } // .btn.checkmark:hover
 
-      > .fa::after {
-        content: "";
-        display: block;
-        border: 2px solid #90ee90;
-        width: 30px;
-        height: 30px;
-        border-radius: 25px;
-        position: absolute;
-        top: -5px;
-        left: 17px;
-      } // .btn.checkmark > .fa::after
+      > .fa {
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          border: 2px solid #90ee90;
+          width: 30px;
+          height: 30px;
+          border-radius: 25px;
+          position: absolute;
+          top: -5px;
+          left: -5px;
+        } // .btn.checkmark > .fa::after
+      }
     } // .btn.checkmark
   } // .task-item.done
 } // .task-item
 </style>
-
