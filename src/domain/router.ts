@@ -9,6 +9,7 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import Tasks from '~/components/context/tasks.vue';
 
 Vue.use(VueRouter);
@@ -17,6 +18,9 @@ const routes = [
   { path: '/', component: Tasks }
 
   // Additional paths are coming here ...
+  // { path: '/about', component: SampleAbout },
+  // ...
+
   // Also possible to create a catch-all page (error page?)
   // { path: '/*', component: SampleError404 }
 ];
