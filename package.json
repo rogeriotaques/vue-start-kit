@@ -5,9 +5,12 @@
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel src/index.pug --no-cache --open",
-    "build": "rm -rf dist/ && NODE_ENV=production parcel build src/index.pug --cache-dir=./dist/.cache",
+    "build": "yarn b:cln && yarn b:run && yarn b:cfg",
     "lint": "eslint ./src --ext .ts,.js --no-error-on-unmatched-pattern",
-    "unit": "jest --collect-coverage"
+    "unit": "jest --collect-coverage",
+    "b:cln": "rm -rf dist/",
+    "b:run": "NODE_ENV=production parcel build src/index.pug --cache-dir=./dist/.cache",
+    "b:cfg": "cp src/.htaccess.sample dist/.htaccess"
   },
   "repository": "git@github.com:rogeriotaques/vue-start-kit.git",
   "author": "Rogerio Taques",
