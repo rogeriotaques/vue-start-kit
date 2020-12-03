@@ -1,7 +1,7 @@
 /**
  * Vue Start Kit
  *
- * This is where all the routes are defined.
+ * Where all the routes are defined.
  *
  * @author Rogerio Taques
  * @license MIT

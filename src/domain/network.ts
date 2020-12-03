@@ -1,7 +1,7 @@
 /**
  * Vue Start Kit
  *
- * This is handling the abstractions for making API requests.
+ * Where the abstractions for API requests should be.
  *
  * @author Rogerio Taques
  * @license MIT

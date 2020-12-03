@@ -1,11 +1,11 @@
 /**
  * Vue Start Kit
  *
- * This is the (Vuex) store initialization.
+ * The (vuex) store initialization.
  *
  * The store manages the state. It should only be mutated from within,
- * so outside components can not directly modify the state. To mutate
- * the state, components can dispatch an action or commit a mutation.
+ * so outside components should not directly modify the state. To mutate
+ * the state, components should dispatch an action or commit a mutation.
  *
  * @author Rogerio Taques
  * @license MIT

@@ -1,13 +1,16 @@
 /**
  * Vue Start Kit
  *
- * This is used to define all mutations for the APP's store.
+ * Defines all the mutations for the app store.
  *
  * To update a state you will need to commit a mutation. A mutation does not
  * care about business logic, it’s only purpose is updating the state. A
  * mutation is synchronous (your code has to wait until the mutation is done).
- * Mutations should be the only way used to update your state, to keep your
- * state management predictable.
+ * Mutations should be the only way used to update the state, this way it will
+ * keep the state management predictable.
+ *
+ * Following the Vue Naming Conventions, mutations should be named in capital letters,
+ * using the "snake" form. E.g THIS_IS_A_MUTATION_NAME.
  *
  * @author Rogerio Taques
  * @license MIT

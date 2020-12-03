@@ -1,7 +1,7 @@
 /**
  * Vue Start Kit
  *
- * This is used to define all mutations for the APP's store.
+ * Define all "getters" for the app store.
  *
  * Getters compute properties based on the store state. You can use these
  * in your actions or directly in your component. This is useful if several

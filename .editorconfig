@@ -1,10 +1,3 @@
-# -----------------------------------------------------
-# Vue Start Kit
-# Defines and enforce the consistency of coding styles.
-# @author Rogerio Taques
-# @license MIT
-# -----------------------------------------------------
-
 root = true
 
 [*]
