@@ -10,12 +10,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Tasks from '~/components/context/tasks.vue';
+import TaskList from '~/components/tasks/task-list.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: Tasks }
+  { path: '/', component: TaskList }
 
   // Additional paths are coming here ...
   // { path: '/about', component: SampleAbout },

@@ -35,7 +35,7 @@ export default {
   name: 'App',
 
   mounted() {
-    // When this component is mounted, calls the API
+    // When this component is mounted, dispatch an action that calls the api.
     this.$store.dispatch('getFromAPI');
   }
 };

@@ -13,7 +13,7 @@ This component renders a list of tasks.
         seed-button(
           tooltip="Mark all as done"
           role="mark-all"
-          v-bind:click="() => complete()"
+          :click="() => complete()"
         ).link.small.check-all.with-tooltip.bottom
           i.eva.eva-done-all-outline
 
@@ -23,7 +23,7 @@ This component renders a list of tasks.
         seed-button(
           tooltip="Remove All"
           role="delete-all"
-          v-bind:click="() => remove()"
+          :click="() => remove()"
         ).link.small.with-tooltip.bottom.remove-all
           i.eva.eva-trash-outline
 
@@ -34,7 +34,7 @@ This component renders a list of tasks.
         type="text",
         placeholder="Type yout next task and hit enter...",
         autofocus,
-        v-on:change="add($event)"
+        @change="add($event)"
       )
 
     seed-spinner(v-if="!isDataLoaded").mt-30
@@ -43,17 +43,22 @@ This component renders a list of tasks.
       span Hooray! No open tasks. <br >
       span.secondary <a href="javascript:location.reload();">Refresh the browser</a> to see all the tasks again.
 
-    transition-group(v-if="isDataLoaded && countTotalTasks > 0", name="fade", tag="dl", appear).tasks.mt-0
+    transition-group(
+      v-if="isDataLoaded && countTotalTasks > 0",
+      name="fade",
+      tag="dl",
+      appear
+    ).tasks.mt-0
       task-item(
         v-for="task in getTasks()",
-        v-bind:key="task.id"
-        v-bind:task="task"
-        v-on:complete="() => complete(task)"
-        v-on:unhide="() => edit({task, editing: true})"
-        v-on:hide="() => edit({task, editing: false})"
-        v-on:update="(evt) => update(task, evt)"
-        v-on:keypress="(evt) => keypressed(task, evt)"
-        v-on:remove="() => remove(task.id)"
+        :key="task.id"
+        :task="task"
+        @complete="complete(task)"
+        @unhide="edit({task, editing: true})"
+        @hide="edit({task, editing: false})"
+        @update="update(task, $event)"
+        @keypress="keypressed(task, $event)"
+        @remove="remove(task.id)"
       )
 </template>
 
@@ -65,10 +70,9 @@ import SeedButton from '~/components/seed/button.vue';
 import TaskItem from '~/components/context/task-item.vue';
 
 import { Task } from '~/domain/interfaces';
-import { getTasks } from '~/domain/network';
 
 export default {
-  name: 'Tasks',
+  name: 'TaskList',
 
   components: {
     SeedButton,
@@ -77,13 +81,13 @@ export default {
   },
 
   computed: {
-    // Mapping the getters is the easiest way of get common computed data
+    // Mapping the getters is the easiest way of get common computed data.
     ...mapGetters(['isDataLoaded', 'countTotalTasks'])
   },
 
-  // All the component methods
+  // All the component methods.
   methods: {
-    getTasks(): Array<Task> {
+    getTasks(): Task[] {
       return this.$store.state.tasks;
     }, // getTasks
 
@@ -131,8 +135,8 @@ export default {
       }
     }, // edit
 
-    keypressed(task: Task, evt: any) {
-      const code = evt.keyCode || evt.which;
+    keypressed(task: Task, evt: any): void {
+      const code: number = evt.keyCode || evt.which;
 
       if (code === 13) {
         // Always the ENTER key is pressed
@@ -140,14 +144,14 @@ export default {
       }
     }, // keypressed
 
-    update(task: Task, evt: any) {
+    update(task: Task, evt: any): void {
       this.$store.dispatch('updateTask', {
         task,
         data: { text: evt.target.value, complete: false }
       });
     }, // update
 
-    add(event: any) {
+    add(event: any): void {
       this.$store.dispatch('addNewTask', event.target.value);
       event.target.value = '';
     } // add

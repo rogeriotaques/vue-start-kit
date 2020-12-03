@@ -8,42 +8,48 @@ This component renders the task item.
 
 <template lang="pug">
   dt(
-    v-bind:key="task.id"
-    v-bind:class="{done: task.complete}"
+    :key="task.id"
+    :class="{done: task.complete}"
   ).task-item
     seed-button(
+      :click="onComplete"
       tooltip="Mark as done"
-      v-bind:click="onComplete"
     ).btn.link.small.checkmark.with-tooltip.bottom
-      i(:class="{'eva': true, 'eva-checkmark-outline': !task.complete, 'eva-checkmark-circle-outline': task.complete}")
+      i(
+        :class="{
+          'eva': true,
+          'eva-checkmark-outline': !task.complete,
+          'eva-checkmark-circle-outline': task.complete
+        }"
+      )
 
     div(
       v-if="!task.editing"
-      v-on:click="onUnhide"
+      @click="onUnhide"
     ).task-text {{ task.text }}
 
     input(
+      v-if="task.editing",
+      :id="`task-${task.id}`",
+      :value="task.text",
       type="text",
       placeholder="Empty will remove the task ...",
-      v-if="task.editing",
-      v-bind:id="`task-${task.id}`",
-      v-bind:value="task.text",
-      v-on:blur="onHide",
-      v-on:input="evt => onUpdate(evt)",
-      v-on:keypress="evt => onKeypress(evt)"
+      @blur="onHide",
+      @input="onUpdate($event)",
+      @keypress="onKeypress($event)"
     )
 
     seed-button(
       tooltip="Remove task",
       role="delete",
-      v-bind:click="onRemove"
+      :click="onRemove"
     ).link.small.with-tooltip.bottom.place-right
       i.eva.eva-trash-outline
 </template>
 
 <script lang="ts">
-import SeedButton from '~/components/seed/button.vue';
 import { Task } from '~/domain/interfaces';
+import SeedButton from '~/components/seed/button.vue';
 
 export default {
   name: 'TaskItem',
@@ -62,27 +68,27 @@ export default {
   // Child components does not need to know anything about their
   // parents. All it needs to do is emit signs for its actions.
   methods: {
-    onComplete() {
+    onComplete(): void {
       this.$emit('complete');
     }, // onComplete
 
-    onUnhide() {
+    onUnhide(): void {
       this.$emit('unhide');
     }, // onUnhide
 
-    onHide() {
+    onHide(): void {
       this.$emit('hide');
     }, // onHide
 
-    onRemove() {
+    onRemove(): void {
       this.$emit('remove');
     }, // onRemove
 
-    onUpdate(evt: any) {
+    onUpdate(evt: any): void {
       this.$emit('update', evt);
     }, // onUpdate
 
-    onKeypress(evt: any) {
+    onKeypress(evt: any): void {
       this.$emit('keypress', evt);
     } // onKeypress
   }
