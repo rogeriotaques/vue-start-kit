@@ -8,34 +8,37 @@
  */
 
 import axios from 'axios';
-import { Task } from '~/domain/interfaces';
+
+import { Task, Person } from '~/domain/interfaces';
 
 /**
- * An example of a network call.
+ * Example of a network call.
  * @return Promise
  */
 export const getTasks = async (): Promise<Task[]> => {
   const url = 'https://randomuser.me/api/?results=5';
 
-  let json;
   let data;
 
   // Executing the API call in a try/catch block
-  // we can handle any possible failure in the process.
+  // possible failures are handled in the process.
   try {
     data = await axios({ url });
-    json = data.data;
 
-    data = json.results.map((entry: any, idx: number) => {
+    const json = data.data;
+
+    data = json.results.map((entry: Person, idx: number) => {
+      const { title, first, last } = entry.name;
+
       return {
         id: idx + 1,
-        text: `${entry.name.title} ${entry.name.first} ${entry.name.last}`,
+        text: `${title} ${first} ${last}`,
         complete: idx % 3 === 0,
         editing: false
       };
     });
   } catch (error) {
-    data = []; // Prevent error to the user
+    data = [];
   }
 
   return data;
