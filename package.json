@@ -6,8 +6,8 @@
   "scripts": {
     "start": "parcel src/index.pug --no-cache --open",
     "build": "rm -rf dist/ && NODE_ENV=production parcel build src/index.pug --cache-dir=./dist/.cache",
-    "lint": "eslint ./src/* --ext .ts,.js --no-error-on-unmatched-pattern",
-    "unit": "jest"
+    "lint": "eslint ./src --ext .ts,.js --no-error-on-unmatched-pattern",
+    "unit": "jest --collect-coverage"
   },
   "repository": "git@github.com:rogeriotaques/vue-start-kit.git",
   "author": "Rogerio Taques",

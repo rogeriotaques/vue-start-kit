@@ -7,6 +7,9 @@ dist/
 # Javascript dependencies
 node_modules/
 
+# Unit tests coverage report
+coverage/
+
 # Log files
 npm-debug.log
 
