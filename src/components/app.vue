@@ -7,36 +7,31 @@ This is the main component from our sample app.
 -->
 
 <template lang="pug">
-  .container
-    h5.align-center.m-0 - ToDo (Sample) App with Vue Start Kit -
-    p.align-center by Rogerio Taques
+  .sample-app
+    h1.sample-app__title - ToDo (Sample) App with Vue Start Kit -
+    p.sample-app_subtitle by Rogerio Taques
 
-    p.align-center.
+    p.sample-app__text.
       You can update this app by changing the
       <code>src/components/app.vue</code> file.
 
     //- UNCOMMENT THE NEXT LINES IF YOU WANNA ADD
     //- THE LINKS CONNECTED TO THE VUE-ROUTER
     //-
-    //- p.align-center
-    //-   router-link(to="/").btn.link Tasks
+    //- p.sample-app__links
+    //-   router-link(to="/").sample-app__links__link Tasks
     //-   span |
-    //-   router-link(to="/about").btn.link About
+    //-   router-link(to="/about").sample-app__links__link About
 
     router-view
 
-    p.align-center.mt-20
-      span The sample data is fetched from &nbsp;
+    footer.sample-app__footer
+      span.sample-app__footer__note The sample data is fetched from &nbsp;
       a(href="https://randomuser.me", target="_blank") https://randomuser.me
 </template>
 
 <script lang="ts">
 export default {
-  name: 'App',
-
-  mounted() {
-    // When this component is mounted, dispatch an action that calls the api.
-    this.$store.dispatch('getFromAPI');
-  }
+  name: 'App'
 };
 </script>
