@@ -16,7 +16,8 @@
       ],
     },
     "rootDirs": [
-      "./src"
+      "./src",
+      "./node_modules/seed-vue/dist"
     ],
     "lib": [],
     "skipLibCheck": true,
