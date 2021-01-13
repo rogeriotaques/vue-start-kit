@@ -17,7 +17,10 @@ This component renders the task item.
       icon,
       @click="$emit('complete', $event)"
     ).tasks__task-item__checkmark
-      s-icon(:name="task.complete ? 'checkmark-circle' : 'checkmark'")
+      s-icon(
+        :name="task.complete ? 'checkmark-circle' : 'checkmark'",
+        :color="task.complete ? 'green' : 'grey'"
+      )
 
     div(
       v-if="!task.editing"
@@ -31,7 +34,7 @@ This component renders the task item.
       v-model="task.text",
       @blur="$emit('hide', $event)",
       @keypress="$emit('keypress', $event)"
-    )
+    ).tasks__task-item__input
 
     s-button(
       tooltip="Remove task",
@@ -40,7 +43,7 @@ This component renders the task item.
       icon,
       @click="$emit('remove', $event)"
     ).tasks__task-item__remove
-      s-icon(name="trash")
+      s-icon(name="trash", color="red")
 </template>
 
 <script lang="ts">
@@ -56,7 +59,52 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.tasks {
+  &__task-item {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: 50px;
+    padding: 0 8px;
+
+    &:not(:first-child) {
+      border-top: 1px solid #d2d2d2;
+    }
+
+    &__checkmark,
+    &__text,
+    &__input,
+    &__remove {
+      flex: 1;
+    }
+
+    &__checkmark,
+    &__remove {
+      max-width: 24px;
+
+      &.s-button {
+        box-shadow: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    &__text,
+    &__input {
+      margin: 0 16px;
+    }
+
+    &__input {
+      transform: translateY(2px);
+    }
+  }
+}
+
 // .task-item {
 //   padding: 10px 10px 5px;
 //   border-bottom: thin solid #ccc;

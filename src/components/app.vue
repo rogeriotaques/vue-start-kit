@@ -9,7 +9,7 @@ This is the main component from our sample app.
 <template lang="pug">
   .sample-app
     h1.sample-app__title - ToDo (Sample) App with Vue Start Kit -
-    p.sample-app_subtitle by Rogerio Taques
+    p.sample-app__subtitle by Rogerio Taques
 
     p.sample-app__text.
       You can update this app by changing the
@@ -35,3 +35,27 @@ export default {
   name: 'App'
 };
 </script>
+
+<style lang="scss" scoped>
+@import '~seed-vue/src/styles/colors';
+
+.sample-app {
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__text,
+  &__subtitle,
+  &__title {
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  &__text code {
+    background-color: $c-secondary;
+    padding: 4px;
+    border-radius: 4px;
+    color: $c-white;
+  }
+}
+</style>

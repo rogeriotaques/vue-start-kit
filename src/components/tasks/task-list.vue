@@ -7,10 +7,10 @@ This component renders a list of tasks.
 -->
 
 <template lang="pug">
-  .tasks
-    .tasks__tasks-header
+  section.tasks
+    .tasks__header
       s-button(
-        class="tasks-header__button tasks-header__button--check-all"
+        class="tasks__header__button tasks__header__button--check-all"
         tooltip="Mark all as done",
         role="mark-all",
         size="mini",
@@ -21,7 +21,7 @@ This component renders a list of tasks.
 
       s-button(
         :disabled="!isDataLoaded || countTotalTasks === 0",
-        class="tasks-header__button tasks-header__button--delete-all",
+        class="tasks__header__button tasks__header__button--delete-all",
         tooltip="Remove All",
         role="delete-all",
         size="mini",
@@ -30,13 +30,12 @@ This component renders a list of tasks.
       )
         s-icon(name="trash", color="red")
 
-
-      span.tasks-header__counter {{ countTotalTasks }} tasks listed.
+      span.tasks__header__counter {{ countTotalTasks }} tasks listed.
 
       br(style="clear: both;")
 
       s-input(
-        class="tasks-header__input"
+        class="tasks__header__input"
         placeholder="Type yout next task and hit enter...",
         autofocus,
         @keydown.enter="add($event)"
@@ -168,7 +167,78 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import '~seed-vue/src/styles/colors';
+
+.tasks {
+  &__list,
+  &__header {
+    position: relative;
+    border: 1px solid #d5d5d5;
+    box-sizing: border-box;
+  }
+
+  &__header {
+    padding: 16px 8px;
+    margin: 24px 0 0;
+    border-bottom: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+
+    &__button:not(:first-child) {
+      margin-left: 8px;
+    }
+
+    &__counter {
+      position: absolute;
+      right: 8px;
+    }
+
+    &__input {
+      &.s-input {
+        margin: 8px 0 0;
+      }
+    }
+  }
+
+  &__list {
+    position: relative;
+    margin: 0 0 24px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-sizing: content-box;
+    z-index: 1;
+
+    dl {
+      margin: 0;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      border: 1px solid #d2d2d2;
+      border-top: 0;
+      border-radius: 4px;
+      height: 4px;
+      width: calc(100% - 1px);
+    }
+
+    &::before {
+      z-index: 2;
+      bottom: -4px;
+      background-color: #f5f5f5;
+    }
+
+    &::after {
+      z-index: 3;
+      bottom: -8px;
+      background-color: #e5e5e5;
+    }
+  }
+}
+
 // @keyframes bounce-up {
 //   from {
 //     margin-top: -25px;
@@ -238,7 +308,7 @@ export default {
 //       display: inline-block;
 //       vertical-align: middle;
 //     }
-//   } // .tasks-header
+//   } // .tasks__header
 
 //   &::before,
 //   &::after {
