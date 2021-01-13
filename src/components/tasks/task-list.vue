@@ -7,90 +7,103 @@ This component renders a list of tasks.
 -->
 
 <template lang="pug">
-  #tasks
-    div.mt-20.tasks-header
-      p.counter.place-left.mb-0
-        seed-button(
-          tooltip="Mark all as done"
-          role="mark-all"
-          :click="() => complete()"
-        ).link.small.check-all.with-tooltip.bottom
-          i.eva.eva-done-all-outline
+  .tasks
+    .tasks__tasks-header
+      s-button(
+        class="tasks-header__button tasks-header__button--check-all"
+        tooltip="Mark all as done",
+        role="mark-all",
+        size="mini",
+        icon,
+        @click="complete"
+      )
+        s-icon(name="done-all")
 
-        span {{countTotalTasks}} tasks listed.
+      s-button(
+        :disabled="!isDataLoaded || countTotalTasks === 0",
+        class="tasks-header__button tasks-header__button--delete-all",
+        tooltip="Remove All",
+        role="delete-all",
+        size="mini",
+        icon,
+        @click="remove"
+      )
+        s-icon(name="trash", color="red")
 
-      p(v-if="isDataLoaded && countTotalTasks > 0").place-right.mb-0
-        seed-button(
-          tooltip="Remove All"
-          role="delete-all"
-          :click="() => remove()"
-        ).link.small.with-tooltip.bottom.remove-all
-          i.eva.eva-trash-outline
+
+      span.tasks-header__counter {{ countTotalTasks }} tasks listed.
 
       br(style="clear: both;")
 
-    .field.mb-0.secondary-background
-      input(
-        type="text",
+      s-input(
+        class="tasks-header__input"
         placeholder="Type yout next task and hit enter...",
         autofocus,
-        @change="add($event)"
+        @keydown.enter="add($event)"
       )
 
-    seed-spinner(v-if="!isDataLoaded").mt-30
+      s-spinner(v-if="!isDataLoaded", size="mini", speed="fast", color="secondary")
 
-    p(v-if="isDataLoaded && countTotalTasks === 0").alert.info.align-center.mt-30
-      span Hooray! No open tasks. <br >
-      span.secondary <a href="javascript:location.reload();">Refresh the browser</a> to see all the tasks again.
-
-    transition-group(
-      v-if="isDataLoaded && countTotalTasks > 0",
-      name="fade",
-      tag="dl",
-      appear
-    ).tasks.mt-0
-      task-item(
-        v-for="task in getTasks()",
-        :key="task.id"
-        :task="task"
-        @complete="complete(task)"
-        @unhide="edit({task, editing: true})"
-        @hide="edit({task, editing: false})"
-        @update="update(task, $event)"
-        @keypress="keypressed(task, $event)"
-        @remove="remove(task.id)"
+    .tasks__list
+      s-alert(
+        v-if="isDataLoaded && countTotalTasks === 0",
+        color="green",
+        title="Hooray! No open tasks"
       )
+        a(href="javascript:location.reload();") Refresh the browser
+        span &nbsp;to see all the tasks again.
+
+      transition-group(
+        v-if="isDataLoaded && countTotalTasks > 0",
+        name="fade",
+        tag="dl",
+        appear
+      )
+        task-item(
+          v-for="task in tasks",
+          :key="task.id"
+          :task="task"
+          @complete="complete(task)"
+          @unhide="edit({task, editing: true})"
+          @hide="edit({task, editing: false})"
+          @update="update(task, $event)"
+          @keypress="keypressed(task, $event)"
+          @remove="remove(task.id)"
+        )
 </template>
 
 <script lang="ts">
 import { mapGetters } from 'vuex';
 
-import SeedSpinner from '~/components/seed/spinner.vue';
-import SeedButton from '~/components/seed/button.vue';
-import TaskItem from '~/components/context/task-item.vue';
-
-import { Task } from '~/domain/interfaces';
+// import { Task } from '~/domain/interfaces';
 
 export default {
   name: 'TaskList',
 
   components: {
-    SeedButton,
-    SeedSpinner,
-    TaskItem
+    TaskItem: () => import('~/components/tasks/task-item.vue')
   },
 
   computed: {
     // Mapping the getters is the easiest way of get common computed data.
-    ...mapGetters(['isDataLoaded', 'countTotalTasks'])
+    ...mapGetters(['isDataLoaded', 'countTotalTasks']),
+
+    tasks(): Task[] {
+      return this.$store.state.tasks;
+    } // tasks
+  },
+
+  async created() {
+    try {
+      // When this component is created, dispatch an action that calls the api.
+      this.$store.dispatch('getFromAPI');
+    } catch (error) {
+      //
+    }
   },
 
   // All the component methods.
   methods: {
-    getTasks(): Task[] {
-      return this.$store.state.tasks;
-    }, // getTasks
-
     remove(id?: number): void {
       if (id) {
         this.$store.dispatch('removeSingleTask', { id });
@@ -107,7 +120,6 @@ export default {
         });
       } else {
         const { tasks } = this.$store.state;
-
         tasks.forEach((task: Task) => {
           this.$store.dispatch('updateTask', {
             task,
@@ -122,13 +134,11 @@ export default {
         task: payload.task,
         data: { editing: payload.editing }
       });
-
       if (payload.editing) {
         // If editing (visible input), put the focus on it.
         // Using timeout to workaround the timing to display it.
         setTimeout(() => {
           const target: any = document.getElementById(`task-${payload.task.id}`);
-
           target.select();
           target.focus();
         }, 50);
@@ -137,7 +147,6 @@ export default {
 
     keypressed(task: Task, evt: any): void {
       const code: number = evt.keyCode || evt.which;
-
       if (code === 13) {
         // Always the ENTER key is pressed
         this.$store.dispatch('updateTask', { task, data: { editing: false } });
@@ -160,103 +169,103 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes bounce-up {
-  from {
-    margin-top: -25px;
-    opacity: 0;
-    z-index: -1;
-  }
-  to {
-    margin-top: 0;
-    opacity: 1;
-    z-index: inherit;
-  }
-}
+// @keyframes bounce-up {
+//   from {
+//     margin-top: -25px;
+//     opacity: 0;
+//     z-index: -1;
+//   }
+//   to {
+//     margin-top: 0;
+//     opacity: 1;
+//     z-index: inherit;
+//   }
+// }
 
-// Animate when adding the element
-.fade-enter-active {
-  animation: bounce-up 0.3s;
-}
+// // Animate when adding the element
+// .fade-enter-active {
+//   animation: bounce-up 0.3s;
+// }
 
-// Animate when removing the element
-.fade-leave-active {
-  animation: bounce-up 0.3s reverse;
-}
+// // Animate when removing the element
+// .fade-leave-active {
+//   animation: bounce-up 0.3s reverse;
+// }
 
-.field {
-  padding: 20px;
-  border: thin solid #4b70b4 !important;
-  background: #4b70b4 !important;
-  position: relative;
-  z-index: 20;
-} // .field
+// .field {
+//   padding: 20px;
+//   border: thin solid #4b70b4 !important;
+//   background: #4b70b4 !important;
+//   position: relative;
+//   z-index: 20;
+// } // .field
 
-.counter {
-  line-height: 31px;
-} // .counter
+// .counter {
+//   line-height: 31px;
+// } // .counter
 
-.check-all,
-.remove-all {
-  margin: 0 10px;
-  min-width: auto;
-  cursor: pointer;
-  color: #aaa;
+// .check-all,
+// .remove-all {
+//   margin: 0 10px;
+//   min-width: auto;
+//   cursor: pointer;
+//   color: #aaa;
 
-  &[role='mark-all'] {
-    &:hover {
-      color: #90ee90 !important;
-    }
-  }
+//   &[role='mark-all'] {
+//     &:hover {
+//       color: #90ee90 !important;
+//     }
+//   }
 
-  &[role='delete-all'] {
-    &:hover {
-      color: red !important;
-    }
-  }
-} // .remove-all
+//   &[role='delete-all'] {
+//     &:hover {
+//       color: red !important;
+//     }
+//   }
+// } // .remove-all
 
-.tasks {
-  border: thin solid #ccc;
-  position: relative;
-  z-index: 6;
+// .tasks {
+//   border: thin solid #ccc;
+//   position: relative;
+//   z-index: 6;
 
-  &-header {
-    border: thin solid #ccc;
-    border-bottom: 0;
+//   &-header {
+//     border: thin solid #ccc;
+//     border-bottom: 0;
 
-    .eva {
-      font-size: 2rem;
-      display: inline-block;
-      vertical-align: middle;
-    }
-  } // .tasks-header
+//     .eva {
+//       font-size: 2rem;
+//       display: inline-block;
+//       vertical-align: middle;
+//     }
+//   } // .tasks-header
 
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    position: relative;
-    border-bottom: thin solid #aaa;
-    height: 3px;
-  }
+//   &::before,
+//   &::after {
+//     content: '';
+//     display: block;
+//     position: relative;
+//     border-bottom: thin solid #aaa;
+//     height: 3px;
+//   }
 
-  &::before {
-    border: {
-      left: thin solid #ccc;
-      right: thin solid #ccc;
-    }
-    background: #f1f1f1;
-    position: absolute;
-    top: 100%;
-    z-index: 4;
-    width: calc(100% - 2px);
-  }
+//   &::before {
+//     border: {
+//       left: thin solid #ccc;
+//       right: thin solid #ccc;
+//     }
+//     background: #f1f1f1;
+//     position: absolute;
+//     top: 100%;
+//     z-index: 4;
+//     width: calc(100% - 2px);
+//   }
 
-  &::after {
-    width: 100%;
-    background: #f5f5f5;
-    border-radius: 0 5px 5px 0;
-    z-index: 2;
-  }
-} // .tasks
+//   &::after {
+//     width: 100%;
+//     background: #f5f5f5;
+//     border-radius: 0 5px 5px 0;
+//     z-index: 2;
+//   }
+// } // .tasks
 </style>
