@@ -1,0 +1,8 @@
+{
+  "relativeUrls": true,
+  "includePaths": [
+    "./node_modules/seed-vue/dist",
+    "./node_modules",
+    "./src"
+  ]
+}

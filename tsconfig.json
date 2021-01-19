@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "module": "esnext",
+    "target": "esnext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -10,12 +10,29 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["node", "mocha", "vue"],
-    "rootDirs": ["./src", "./src/components", "./src/domain"],
     "paths": {
-      "~/*": ["./src/*"]
-    }
+      "~/*": [
+        "./src/*"
+      ],
+    },
+    "rootDirs": [
+      "./src",
+      "./node_modules/seed-vue/dist"
+    ],
+    "lib": [],
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "./src/**/*.js",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "vue.d.ts",
+  ]
 }

@@ -1,0 +1,23 @@
+# Vue Start Kit
+# @author Rogerio Taques
+
+<FilesMatch "^(\.|\_)">
+    # Deny access to filenames starting
+    # with dot(.) or underline(_)
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch ".(yml|yaml|log|sh|db|sqlite|sql)$">
+    # Deny access to filenames with
+    # especific extensions
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.html [QSA,L]
+</IfModule>

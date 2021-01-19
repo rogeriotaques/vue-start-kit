@@ -1,11 +1,11 @@
 /**
  * Vue Start Kit
  *
- * This file handles the APP's initial state.
+ * Defines the app's initial state.
  *
- * State is the data stored in your application. You components can “receive”
- * this data and when it changes your component will update itself. This is
- * the “single source of truth” in your application.
+ * State is the data stored in your application. Components will “receive”
+ * this data-structure and when it changes they will update themselves. This file
+ * should be the “single source of truth” in an application.
  *
  * @author Rogerio Taques
  * @license MIT
