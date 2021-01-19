@@ -26,8 +26,12 @@ This is the main component from our sample app.
     router-view
 
     footer.sample-app__footer
-      span.sample-app__footer__note The sample data is fetched from &nbsp;
-      a(href="https://randomuser.me", target="_blank") https://randomuser.me
+      p.sample-app__footer__note
+        span 👉 The sample data is fetched from &nbsp;
+        a(href="https://randomuser.me", target="_blank") https://randomuser.me
+        br
+        span 💡 Clicking over any task will open it for edition.
+
 </template>
 
 <script lang="ts">

@@ -7214,11 +7214,6 @@ schema-utils@^2.6.5:
     ajv "^6.12.4"
     ajv-keywords "^3.5.2"
 
-seed-css@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/seed-css/-/seed-css-2.5.1.tgz#e68a06b16e1cb1d656325dd63d54ea06e44462f9"
-  integrity sha512-4329YliL84iXibb7GXQp1A7mRheMG7lMxBZGs/uqj1eVxsZqB+Igc3DGhVaYziArsf0lewXV19Hn8Ch95NAQiw==
-
 seed-vue@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/seed-vue/-/seed-vue-0.1.3.tgz#305e15f951e62aaba6f023dbd128445d9b69d554"

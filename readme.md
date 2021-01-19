@@ -6,7 +6,7 @@
 <a href="https://opensource.org/licenses/MIT">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
 
-<a href="https://gitter.im/AbtzLabs/vue-start-kit">
+<a href="https://gitter.im/rogeriotaques/vue-start-kit">
   <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" alt="Chat on Gitter" /></a>
 
 <a href="https://github.com/rogeriotaques/vue-start-kit/issues">
@@ -26,7 +26,7 @@ Just another starter-kit 😅 to bootstrap [Vue.js](https://vuejs.org/) applicat
 - [Eslint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
 - [Eva Icons](https://akveo.github.io/eva-icons/)
-- [Seed-CSS](http://rogeriotaques.github.io/seed-css/) (lightweight CSS boilerplate)
+- [Seed-Vue](http://rogeriotaques.github.io/seed-vue/) (Vue2 based components)
 
 ## Why should you use this?
 
@@ -94,7 +94,7 @@ The unit tests are written using `Jest` and they can be found in `src/__test__`.
 Run the following command to start executing the existing tests:
 
 ```sh
-$ yarn unit   # or npm run test
+$ yarn unit   # or npm run unit
 ```
 
 ## Found a 🐞 (bug)?

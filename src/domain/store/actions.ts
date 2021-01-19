@@ -25,6 +25,7 @@ export const actions = {
    */
   async getFromAPI(context: any): Promise<void> {
     const tasks = await getTasks();
+    context.commit('REMOVE');
     context.commit('LOAD', { tasks });
   }, // getFromAPI
 
