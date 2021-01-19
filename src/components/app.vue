@@ -55,6 +55,10 @@ export default {
     line-height: 1.5;
   }
 
+  &__subtitle {
+    margin-bottom: 16px;
+  }
+
   &__text code {
     background-color: $c-secondary;
     padding: 4px;

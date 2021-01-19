@@ -41,7 +41,13 @@ This component renders a list of tasks.
         @keydown.enter="add($event)"
       )
 
-      s-spinner(v-if="!isDataLoaded", size="mini", speed="fast", color="secondary")
+      s-spinner(
+        v-if="!isDataLoaded",
+        size="mini",
+        speed="fast",
+        color="secondary",
+        text="Loading ..."
+      )
 
     .tasks__list
       s-alert(
