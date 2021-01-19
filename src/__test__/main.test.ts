@@ -2,6 +2,7 @@
  * Vue Start Kit
  *
  * This is the test entry point.
+ * It tests general stuff.
  *
  * @author Rogerio Taques
  * @license MIT
