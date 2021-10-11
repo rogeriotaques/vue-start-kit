@@ -8,7 +8,7 @@
  * @license MIT
  */
 
-import { getTasks } from '~/domain/network';
+import { getTasks } from '../domain/network';
 
 describe('Test Example', () => {
   const text = 'Hello World';
@@ -21,13 +21,16 @@ describe('Test Example', () => {
     expect(text.charAt(0)).toBe('H');
   });
 
-  it('expects getTasks to return 5 records', async (done) => {
+  it('expects getTasks to return 5 records', async () => {
     try {
       const data = await getTasks();
       expect(data.length).toBe(5);
-      done();
     } catch (error) {
-      done(error);
+      expect(error).toMatch('error');
     }
   });
+
+  // it('expects to fail', () => {
+  //   expect(true).toBe(false);
+  // });
 });

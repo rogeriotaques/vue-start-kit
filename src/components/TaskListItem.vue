@@ -48,6 +48,8 @@ This component renders the task item.
 </template>
 
 <script lang="ts">
+import { Task } from '~/domain/interfaces';
+
 export default {
   name: 'TaskListItem',
 

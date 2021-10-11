@@ -66,7 +66,7 @@ This component renders a list of tasks.
         ).tasks__list-items
           task-list-item(
             v-for="(task, index) in tasks",
-            :key="index"
+            :key="task.id"
             :task="task"
             @complete="complete(task)"
             @unhide="edit({task, editing: true})"
@@ -85,7 +85,7 @@ export default {
   name: 'TaskList',
 
   components: {
-    TaskListItem: () => import('~/components/tasks/task-list-item.vue')
+    TaskListItem: () => import('~/components/TaskListItem.vue')
   },
 
   computed: {

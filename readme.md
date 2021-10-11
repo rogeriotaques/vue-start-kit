@@ -16,32 +16,29 @@
 
 ## What is this?
 
-Just another starter-kit 😅 to bootstrap [Vue.js](https://vuejs.org/) applications, ready with:
+Just another starter-kit 😅 to bootstrap [Vue 2](https://vuejs.org/) applications, ready with:
 
 - [Vuex](https://vuex.vuejs.org/)
 - [Vue-Router](https://router.vuejs.org/)
-- [Parcel.js](https://parceljs.org) (package bundler)
-- [Pug](https://pugjs.org)
+- [Webpack](https://parceljs.org) (package bundler)
+- [Pug](https://pugjs.org) (less code for HTM templates)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Eslint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
 - [Eva Icons](https://akveo.github.io/eva-icons/)
-- [Seed-Vue](http://rogeriotaques.github.io/seed-vue/) (Vue2 based components)
+- [Seed-Vue](https://rogeriotaques.github.io/seed-vue/) (Vue2 based components)
 
-## Why should you use this?
+## Why you should use this?
 
-You may want to use this starter-kit to quickly bootstrap small and simple apps.
-
-I've prepared it as a boilerplate app that is ready to easily get up and running with side projects without the need to go thru all the steps from the (official) vue-cli. Therefore, it might be kinda opinionated, but it's still super flexible for customizations.
+You may find useful to use the **Vue Start Kit** if you want to quickly bootstrap a Vue application. It was prepared as a boilerplate ready for running and testing SPA.
 
 Here's what you get in this bundle 👇
 
-- 🚀 Quick to start coding your app (side projects?)
+- 🚀 Quick to start coding your app
 - 🙌 Very clean and intuitive file structure
 - 🔥 Live programing environment (with Hot Module Replacement)
 - 🎯 Linter and Vue Coding Guidelines up an running
 - 💪 Pre configured unit tests
-- 😇 No webpack config files
 - ✅ Well commented and easy to understand source-code
 - 💡 A sample (ToDo 🤷🏻‍♂️) app
 
@@ -62,7 +59,7 @@ $ yarn start  # or npm start
 
 👉🏻 A new tab will open on your (default) browser pointing to [http://localhost:1234/](http://localhost:1234/). If this address is already in use, it will automatically choose another random port.
 
-Hooray! 🎉 At this point we should be up and running.
+Hooray! 🎉 At this point you should be seeing the app running already.
 
 From now on, everything you change in the `source-code` will trigger an immediate update on the browser (_without refresh_) preserving the current state of your newly created app.
 
@@ -107,9 +104,9 @@ Shame on me! 😊 But you know, that may happen!
 
 ## License
 
-VUE START KIT - MIT License
+Vue Start Kit - MIT License
 
-Copyright &copy; 2019-2020 Rogerio Taques.
+Copyright &copy; 2019-2021 Rogerio Taques.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -120,7 +117,7 @@ SOFTWARE.
 
 ## Where this's been used?
 
-I'm using this starter-kit on these projects 👇
+I'm using the **Vue Start Kit** on these projects 👇
 
 <p ><br ></p>
 
@@ -128,26 +125,28 @@ I'm using this starter-kit on these projects 👇
   <tbody >
     <tr >
       <td >
-        <a href="https://mailshld.com" title="Mail Shield" >
-          <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="40" style="vertical-align: middle" /></a>
-      </td>
-      <td >Mail Shield</td>
-      <td >Dynamic aliases for Gmail.</td>
-    </tr>
-    <tr >
-      <td >
         <a href="https://3o2.co" title="3o2, The API based URL shortener" >
           <img src="https://3o2.co/assets/images/logo-thin.png" alt="3o2" height="40" style="vertical-align: middle" /></a>
       </td>
-      <td >3o2</td>
+      <td >https://3o2.co</td>
       <td >The headless URL shortener.</td>
+    </tr>
+    <tr >
+      <td >
+        <a href="https://mailshld.com" title="Mail Shield" >
+          <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="40" style="vertical-align: middle" /></a>
+      </td>
+      <td >https://mailshld.com</td>
+      <td >Dynamic and replaceable aliases for Gmail.</td>
     </tr>
   </tbody>
 </table>
 
 <p ><br ></p>
 
-Are you also using it and want some free advertisement? 😬 [Get in touch](https://twitter.com/rogeriotaques) and I will place your logo here with a back-link to your project.
+Are you also using it and want some free advertisement? 😬
+
+[Get in touch](https://twitter.com/rogeriotaques) and I will place your logo here with a back-link to your project.
 
 ## Help me keeping improving it! 🙏
 
