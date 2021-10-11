@@ -4,6 +4,7 @@
   "disableLanguages": [
     "markdown"
   ],
-  "printWidth": 150,
-  "jsxSingleQuote": true
+  "printWidth": 120,
+  "jsxSingleQuote": true,
+  "trailingComma": "none"
 }

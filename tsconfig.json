@@ -1,38 +1,23 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "esnext",
-    "strict": true,
+    "module": "esnext",
     "jsx": "preserve",
-    "importHelpers": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
     "paths": {
       "~/*": [
         "./src/*"
-      ],
+      ]
     },
-    "rootDirs": [
-      "./src",
-      "./node_modules/seed-vue/dist"
-    ],
-    "lib": [],
-    "skipLibCheck": true,
-    "resolveJsonModule": true
   },
   "include": [
-    "./src/**/*.js",
-    "./src/**/*.ts",
+    "./src/**/*.vue",
     "./src/**/*.tsx",
-    "./src/**/*.vue"
+    "./src/**/*.ts",
+    "./src/**/*.js",
   ],
   "exclude": [
     "node_modules"
-  ],
-  "files": [
-    "vue.d.ts",
   ]
 }
