@@ -2,13 +2,15 @@ const path = require('path');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.ts',
 
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'app.js'
+    filename: 'app.js',
+    clean: true
   },
 
   devServer: {
@@ -49,6 +51,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '/public/images/[name].[ext]'
+        }
       }
     ]
   },
@@ -65,6 +74,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new CopyPlugin({
       patterns: [{ from: 'public' }]
-    })
+    }),
+    new Dotenv()
   ]
 };
