@@ -5,10 +5,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/main.ts',
 
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'app.js',
     clean: true
   },
@@ -19,7 +19,8 @@ module.exports = {
     historyApiFallback: true,
     compress: true,
     port: 1234,
-    open: true
+    open: true,
+    hot: true
   },
 
   module: {
@@ -35,14 +36,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.pug$/,
-        use: ['pug-plain-loader']
       },
       {
         test: /\.scss$/,
@@ -66,7 +59,7 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx', '.vue', '.json'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      '~': path.resolve(__dirname, 'src/')
+      '@': path.resolve(__dirname, 'src/')
     }
   },
 

@@ -1,14 +1,4 @@
-/**
- * Vue Start Kit
- *
- * This is the test entry point.
- * It tests general stuff.
- *
- * @author Rogerio Taques
- * @license MIT
- */
-
-import { getTasks } from '../domain/network';
+import { getTasksFromApi } from '../domain/network';
 
 describe('Test Example', () => {
   const text = 'Hello World';
@@ -21,9 +11,9 @@ describe('Test Example', () => {
     expect(text.charAt(0)).toBe('H');
   });
 
-  it('expects getTasks to return 5 records', async () => {
+  it('expects getTasksFromApi to return 5 records', async () => {
     try {
-      const data = await getTasks();
+      const data = await getTasksFromApi();
       expect(data.length).toBe(5);
     } catch (error) {
       expect(error).toMatch('error');

@@ -1,40 +1,25 @@
-/**
- * Vue Start Kit
- *
- * Where the abstractions for API requests should be.
- *
- * @author Rogerio Taques
- * @license MIT
- */
-
 import axios from 'axios';
-
-import { Task, Person } from '~/domain/interfaces';
+import type { Task } from '@/domain/interfaces';
 
 /**
  * Example of a network call.
  * @return Promise
  */
-export const getTasks = async (): Promise<Task[]> => {
-  const url = 'https://randomuser.me/api/?results=5';
-
+export const getTasksFromApi = async (): Promise<Task[]> => {
   let data;
 
   // Executing the API call in a try/catch block
   // possible failures are handled in the process.
   try {
-    data = await axios({ url });
+    data = await axios({ url: 'https://randomuser.me/api/?results=5' }).then((res) => res.data?.results || []);
 
-    const json = data.data;
-
-    data = json.results.map((entry: Person, idx: number) => {
+    data = data.map((entry: any, idx: number) => {
       const { title, first, last } = entry.name;
 
       return {
         id: idx + 1,
         text: `${title} ${first} ${last}`,
-        complete: idx % 3 === 0,
-        editing: false
+        done: idx % 3 === 0
       };
     });
   } catch (error) {
@@ -42,4 +27,4 @@ export const getTasks = async (): Promise<Task[]> => {
   }
 
   return data;
-}; // getTasks
+}; // getTasksFromApi

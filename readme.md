@@ -1,42 +1,46 @@
 # Vue Start Kit
-###### by Rogerio Taques
+
+A boring boilerplate for Vue 2 applications, by Rogerio Taques.
 
 <p ><br ></p>
 
-<a href="https://opensource.org/licenses/MIT">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+<div >
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
 
-<a href="https://gitter.im/rogeriotaques/vue-start-kit">
-  <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" alt="Chat on Gitter" /></a>
+  <!-- <a href="https://gitter.im/rogeriotaques/vue-start-kit">
+    <img src="https://img.shields.io/badge/Chat-on%20Gitter-green.svg" alt="Chat on Gitter" /></a> -->
 
-<a href="https://github.com/rogeriotaques/vue-start-kit/issues">
-  <img src="https://img.shields.io/github/issues/rogeriotaques/vue-start-kit.svg?label=Issues" alt="Open Issues" /></a>
+  <a href="https://github.com/rogeriotaques/vue-start-kit/issues">
+    <img src="https://img.shields.io/github/issues/rogeriotaques/vue-start-kit.svg?label=Issues" alt="Open Issues" /></a>
+</div>
 
 <p ><br ></p>
 
-## What is this?
+## What is included?
 
-Just another starter-kit 😅 to bootstrap [Vue 2](https://vuejs.org/) applications, ready with:
-
-- [Vuex](https://vuex.vuejs.org/)
+- [Vue 2](https://v2.vuejs.org/) (with composition api)
 - [Vue-Router](https://router.vuejs.org/)
-- [Webpack](https://parceljs.org) (package bundler)
-- [Pug](https://pugjs.org) (less code for HTM templates)
+- [Pinia](https://pinia.esm.dev/)
+- [Axios](https://axios-http.com/)
+- [Sass](https://sass-lang.com/)
+- [Webpack](https://webpack.js.org/) (with hot module replacement)
+- [EditorConfig](https://editorconfig.org/)
+- [Prettier](https://prettier.io/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Eslint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
-- [Eva Icons](https://akveo.github.io/eva-icons/)
-- [Seed-Vue](https://rogeriotaques.github.io/seed-vue/) (Vue2 based components)
 
-## Why you should use this?
+## Why shuuld you use this?
 
-You may find useful to use the **Vue Start Kit** if you want to quickly bootstrap a Vue application. It was prepared as a boilerplate ready for running and testing SPA.
+You probably should not. Vue is already on v3 and this is based on v2.
+
+But, you may find this useful if, for some reason, you want to quickly bootstrap a Vue 2 application. It comes with all the bare minium to code a SPA.
 
 Here's what you get in this bundle 👇
 
 - 🚀 Quick to start coding your app
 - 🙌 Very clean and intuitive file structure
-- 🔥 Live programing environment (with Hot Module Replacement)
+- 🔥 Live programming environment (with Hot Module Replacement)
 - 🎯 Linter and Vue Coding Guidelines up an running
 - 💪 Pre configured unit tests
 - ✅ Well commented and easy to understand source-code
@@ -75,20 +79,25 @@ This will create the `dist/` directory with all the compiled files from your app
 
 ## Contributing
 
-Contributions are _very_ welcome and are expected to be made through [pull requests](https://github.com/AbtzLabs/vue-start-kit/pulls). As for now, I don't have any contribution guidelines in place, so, please don't be evil. 😉
+Contributions are _very_ welcome and are expected to be made via [pull requests](https://github.com/AbtzLabs/vue-start-kit/pulls). As for now, I don't have any contribution guidelines in place, so, please don't be evil. 😉
 
 You can simply start by:
 
 1. Forking this repository;
 2. Changing and implementing what you think necessary;
-3. Implementing the unit tests (with [Jest](https://jestjs.io/));
 4. Submitting a pull-request.
+
+There are a few more ways for you to contribute to this project:
+
+- Be my reviewer. Check my code and suggest improvements
+- Be my sponsor with a single contribution of [$2.50](https://paypal.me/abtzlabs/2.5USD), [$5](https://paypal.me/abtzlabs/5USD) or [$10](https://paypal.me/abtzlabs/10USD) (via Paypal)
+- Be my boss 😬, with a monthly [sponsorship](https://github.com/sponsors/rogeriotaques) (via Github)
 
 ## Unit tests
 
-The unit tests are written using `Jest` and they can be found in `src/__test__`.
+The unit tests are written in `Jest` and they can be found in `src/__test__`.
 
-Run the following command to start executing the existing tests:
+Run the following command to start the tests:
 
 ```sh
 $ yarn unit   # or npm run unit
@@ -106,7 +115,7 @@ Shame on me! 😊 But you know, that may happen!
 
 Vue Start Kit - MIT License
 
-Copyright &copy; 2019-2021 Rogerio Taques.
+Copyright &copy; 2019-2023 Rogerio Taques.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -115,48 +124,17 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Where this's been used?
+## Where this has been used?
 
-I'm using the **Vue Start Kit** on these projects 👇
+I have been using this as the start point for all my side-projects, e.g: 👇
 
-<p ><br ></p>
+| Name | URL  | Description | Status |
+| ---- | ---- | ----------- | ------ |
+| 3o2 | [https://3o2.co](https://3o2.co) | The headless URL shortener. | Descontinued |
+| <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="40" style="vertical-align: middle" /> | [https://mailshld.com](https://mailshld.com) | Dynamic and replaceable aliases for Gmail | Sold |
 
-<table style="width: 100%;">
-  <tbody >
-    <tr >
-      <td >
-        <a href="https://3o2.co" title="3o2, The API based URL shortener" >
-          <img src="https://3o2.co/assets/images/logo-thin.png" alt="3o2" height="40" style="vertical-align: middle" /></a>
-      </td>
-      <td >https://3o2.co</td>
-      <td >The headless URL shortener.</td>
-    </tr>
-    <tr >
-      <td >
-        <a href="https://mailshld.com" title="Mail Shield" >
-          <img src="https://mailshld.com/assets/images/logo-transparent@2x.png" alt="Mail Shield" height="40" style="vertical-align: middle" /></a>
-      </td>
-      <td >https://mailshld.com</td>
-      <td >Dynamic and replaceable aliases for Gmail.</td>
-    </tr>
-  </tbody>
-</table>
 
 <p ><br ></p>
 
-Are you also using it and want some free advertisement? 😬
-
-[Get in touch](https://twitter.com/rogeriotaques) and I will place your logo here with a back-link to your project.
-
-## Help me keeping improving it! 🙏
-
-I make this project 100% on my spare time. And even though this page (and the source-code) is hosted on Github, free of charge, coding and maintaining it consumes an important and precious resource of mine ... time.
-
-So, if you think that all this effort is creating value in some way to you, be it helping you to bootstrap side-projects, quickly prototype and show up your next unicorn 🦄, etc, please consider contributing to keep me up! 💪
-
-There're a few different ways you can contribute:
-
-- Be my reviewer. Check my code and suggest improvements
-- Be my sponsor with a single contribution of [$2.50](https://paypal.me/abtzlabs/2.5USD), [$5](https://paypal.me/abtzlabs/5USD) or [$10](https://paypal.me/abtzlabs/10USD) (via Paypal)
-- Be my boss 😬, with a monthly [sponsorship](https://github.com/sponsors/rogeriotaques) (via Github)
+Are you also using it and want some free advertisement? 😬 [Get in touch](https://twitter.com/rogeriotaques) and I will add your logo here with a back-link to your product or website.
 
